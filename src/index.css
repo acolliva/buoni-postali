@@ -154,3 +154,9 @@ tr:last-child td { border-bottom: 0; }
 @media (prefers-reduced-motion: no-preference) {
   .tab, .chip, .btn { transition: background-color 120ms, color 120ms; }
 }
+
+.action details summary { cursor: pointer; }
+.detail-list { margin: 6px 0 0; padding-left: 18px; }
+a { color: var(--accent); }
+.note + .note, .note + svg { margin-top: 12px; }
+.figures + .note { margin-bottom: 16px; }

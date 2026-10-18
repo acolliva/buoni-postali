@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { addYears, todayIso } from '../domain/dates'
-import { curve, valueAt } from '../domain/engine'
+import { todayIso } from '../domain/dates'
+import { curve, maturityDate, prescriptionDate, valueAt } from '../domain/engine'
 import { findRule, SERIES_RULES } from '../domain/series'
 import type { Buono, Currency } from '../domain/types'
 import { fmtDate, fmtEur, fmtEur0 } from '../format'
@@ -10,19 +10,20 @@ export function Calculator() {
   const [sottoscritto, setSottoscritto] = useState('2005-03-07')
   const [nominale, setNominale] = useState(1000)
   const [target, setTarget] = useState(todayIso())
+  const [valutaOverride, setValutaOverride] = useState<Currency | null>(null)
 
   const rule = findRule(serie)
-  const valuta: Currency = rule?.currency ?? 'EUR'
+  const valuta: Currency = valutaOverride ?? rule?.currency ?? 'EUR'
   const buono: Buono = { id: 'calc', serie, sottoscritto, nominale, valuta }
 
   const result = (() => {
     if (!rule || !sottoscritto || !target || nominale <= 0) return null
-    const maturity = addYears(sottoscritto, rule.durationYears)
+    const maturity = maturityDate(rule, sottoscritto)
     return {
       at: valueAt(buono, rule, target),
       atMaturity: valueAt(buono, rule, maturity),
       maturity,
-      prescription: addYears(maturity, rule.prescriptionYears),
+      prescription: prescriptionDate(rule, sottoscritto),
       points: curve(buono, rule),
     }
   })()
@@ -38,7 +39,10 @@ export function Calculator() {
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="field">
             <label htmlFor="serie">Serie</label>
-            <input id="serie" list="serie-list" value={serie} onChange={(e) => setSerie(e.target.value.toUpperCase())} />
+            <input id="serie" list="serie-list" value={serie} onChange={(e) => {
+                setSerie(e.target.value.toUpperCase())
+                setValutaOverride(null)
+              }} />
             <datalist id="serie-list">
               {allCodes.map((c) => (
                 <option key={c} value={c} />
@@ -48,6 +52,13 @@ export function Calculator() {
           <div className="field">
             <label htmlFor="sottoscritto">Data di sottoscrizione</label>
             <input id="sottoscritto" type="date" value={sottoscritto} onChange={(e) => setSottoscritto(e.target.value)} />
+          </div>
+          <div className="field">
+            <label htmlFor="valuta">Valuta del buono</label>
+            <select id="valuta" value={valuta} onChange={(e) => setValutaOverride(e.target.value as Currency)}>
+              <option value="EUR">Euro</option>
+              <option value="ITL">Lire</option>
+            </select>
           </div>
           <div className="field">
             <label htmlFor="nominale">Valore nominale ({valuta === 'ITL' ? 'lire' : 'euro'})</label>
@@ -95,6 +106,12 @@ export function Calculator() {
                   <dd>{fmtEur(result.atMaturity.net)}</dd>
                 </div>
               </dl>
+              {target > result.maturity && (
+                <p className="note">Alla data scelta il buono è già scaduto: il valore è fermo a quello della scadenza e non matura più interessi.</p>
+              )}
+              {result.at.monthsAccrued < 12 && (
+                <p className="note">Nei primi 12 mesi il buono rimborsa solo il valore nominale, senza interessi.</p>
+              )}
               <GrowthChart points={result.points} marker={target} />
               <p className="note">
                 Affidabilità dei dati della serie: {rule.confidence}.{rule.notes ? ` ${rule.notes}` : ''}
@@ -120,7 +137,7 @@ export function Calculator() {
 function GrowthChart({ points, marker }: { points: { date: string; net: number }[]; marker: string }) {
   const W = 640
   const H = 220
-  const pad = { l: 64, r: 12, t: 12, b: 28 }
+  const pad = { l: 64, r: 28, t: 12, b: 28 }
   const t0 = Date.parse(points[0].date)
   const t1 = Date.parse(points[points.length - 1].date)
   const vmin = points[0].net

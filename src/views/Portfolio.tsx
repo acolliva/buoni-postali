@@ -2,7 +2,7 @@ import { useMemo, useRef, useState } from 'react'
 import { todayIso } from '../domain/dates'
 import { assess, type Assessment, type Status } from '../domain/engine'
 import type { Buono, ImportWarning } from '../domain/types'
-import { fmtDate, fmtDuration, fmtEur, fmtEur0, fmtLire, fmtPct } from '../format'
+import { fmtDate, fmtEur, fmtEur0, fmtLire, fmtPct } from '../format'
 import { readWorkbook } from '../import/readWorkbook'
 import { DEFAULT_SETTINGS, useStored, type Settings } from '../state/storage'
 import { MaturityStrip } from './MaturityStrip'
@@ -25,18 +25,15 @@ interface Group {
   net: number
 }
 
-function groupBy(list: Assessment[]): Group[] {
+function groupBySeries(list: Assessment[]): Group[] {
   const map = new Map<string, Assessment[]>()
-  for (const a of list) {
-    const key = `${a.buono.serie}|${a.buono.sottoscritto}`
-    map.set(key, [...(map.get(key) ?? []), a])
-  }
-  return [...map.entries()].map(([key, items]) => ({
-    key,
-    items,
-    first: items[0],
-    net: items.reduce((s, a) => s + (a.now?.net ?? 0), 0),
-  }))
+  for (const a of list) map.set(a.buono.serie, [...(map.get(a.buono.serie) ?? []), a])
+  return [...map.entries()]
+    .map(([key, items]) => {
+      items.sort((x, y) => (x.maturity! < y.maturity! ? -1 : 1))
+      return { key, items, first: items[0], net: items.reduce((s, a) => s + (a.now?.net ?? 0), 0) }
+    })
+    .sort((x, y) => (x.first.maturity! < y.first.maturity! ? -1 : 1))
 }
 
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`
@@ -73,6 +70,8 @@ export function Portfolio() {
   const known = assessed.filter((a) => a.rule)
   const unknown = assessed.filter((a) => !a.rule)
   const totalNet = known.reduce((s, a) => s + (a.now?.net ?? 0), 0)
+  const outside = known.filter((a) => a.outsideIssueWindow)
+  const reclassified = known.filter((a) => a.reclassifiedFrom)
   const idle = known.filter((a) => a.status === 'scaduto' || a.status === 'prescrizione-vicina')
   const idleNet = idle.reduce((s, a) => s + (a.now?.net ?? 0), 0)
 
@@ -91,11 +90,11 @@ export function Portfolio() {
       </h1>
       <p className="lede">
         Valori calcolati al {fmtDate(today)} dalle regole di ogni serie, al netto della ritenuta del 12,5%. Imposta di
-        bollo esclusa.
+        bollo (0,20% annuo oltre 5.000 € di buoni) esclusa.
         {unknown.length > 0 && ` ${plural(unknown.length, 'buono ha', 'buoni hanno')} una serie non ancora configurata ed è esclusa dai totali.`}
       </p>
 
-      {warnings.length > 0 && (
+      {(warnings.length > 0 || outside.length > 0 || reclassified.length > 0) && (
         <div className="warnings" role="status">
           <strong>Da controllare nel file</strong>
           <ul>
@@ -104,6 +103,23 @@ export function Portfolio() {
                 Riga {w.row}: {w.message}
               </li>
             ))}
+            {outside.map((a) => (
+              <li key={a.buono.id}>
+                Serie {a.buono.serie} sottoscritta il {fmtDate(a.buono.sottoscritto)}: fuori dal periodo di emissione della serie
+                ({fmtDate(a.rule!.issueFrom)} – {fmtDate(a.rule!.issueTo)}). Controlla serie e data sul buono.
+              </li>
+            ))}
+            {groupBySeries(reclassified).map((g) => {
+              const dates = [...new Set(g.items.map((a) => fmtDate(a.buono.sottoscritto)))].join(', ')
+              const to = g.first.rule!.codes[0]
+              return (
+                <li key={g.key}>
+                  {plural(g.items.length, 'buono', 'buoni')} serie {g.key} sottoscritt{g.items.length === 1 ? 'o' : 'i'} il {dates}, dopo
+                  la chiusura della serie: i moduli emessi dopo quella data valgono come serie {to}, quindi li calcolo con le regole
+                  della serie {to}. Verifica il timbro sul buono.
+                </li>
+              )
+            })}
           </ul>
         </div>
       )}
@@ -194,11 +210,11 @@ function ImportZone({ onFile, error }: { onFile: (f: File) => void; error: strin
 }
 
 function ActionList({ assessed, settings }: { assessed: Assessment[]; settings: Settings }) {
-  const urgent = groupBy(assessed.filter((a) => a.status === 'prescrizione-vicina' || a.status === 'prescritto'))
-  const late = groupBy(assessed.filter((a) => a.status === 'scaduto'))
-  const soon = groupBy(assessed.filter((a) => a.status === 'in-scadenza'))
-  const weak = groupBy(assessed.filter((a) => a.belowBenchmark))
-  const byDate = (key: 'prescription' | 'maturity') => (x: Group, y: Group) => (x.first[key]! < y.first[key]! ? -1 : 1)
+  const pick = (f: (a: Assessment) => boolean) => groupBySeries(assessed.filter(f))
+  const urgent = pick((a) => a.status === 'prescrizione-vicina' || a.status === 'prescritto')
+  const late = pick((a) => a.status === 'scaduto')
+  const soon = pick((a) => a.status === 'in-scadenza')
+  const weak = pick((a) => a.belowBenchmark)
 
   if (!urgent.length && !late.length && !soon.length && !weak.length) {
     return (
@@ -209,30 +225,39 @@ function ActionList({ assessed, settings }: { assessed: Assessment[]; settings: 
     )
   }
 
+  const range = (g: Group, key: 'maturity' | 'prescription') => {
+    const dates = [...new Set(g.items.map((a) => a[key]!))].sort()
+    return dates.length === 1 ? `il ${fmtDate(dates[0])}` : `tra il ${fmtDate(dates[0])} e il ${fmtDate(dates[dates.length - 1])}`
+  }
+  const one = (g: Group) => g.items.length === 1
+  const bench = String(settings.benchmarkPct).replace('.', ',')
+
   return (
     <section>
       <h2>Da fare</h2>
       <ul className="actions">
-        {urgent.sort(byDate('prescription')).map((g) => (
-          <ActionRow key={g.key} g={g} tone="urgent">
+        {urgent.map((g) => (
+          <ActionRow key={'u' + g.key} g={g} tone="urgent">
             {g.first.status === 'prescritto'
-              ? `Prescritto dal ${fmtDate(g.first.prescription!)}: verifica con Poste se è ancora rimborsabile.`
-              : `Incassa entro il ${fmtDate(g.first.prescription!)}, poi si prescrive. Mancano ${fmtDuration(g.first.daysToPrescription!)}.`}
+              ? `Prescritt${one(g) ? 'o' : 'i'} ${range(g, 'prescription')}: verifica con Poste se è ancora possibile il rimborso.`
+              : `Da incassare prima della prescrizione, ${range(g, 'prescription')}. Dopo non si recupera nulla, né capitale né interessi.`}
           </ActionRow>
         ))}
-        {late.sort(byDate('maturity')).map((g) => (
-          <ActionRow key={g.key} g={g} tone="late">
-            Scaduto il {fmtDate(g.first.maturity!)}: non matura più interessi. Si prescrive il {fmtDate(g.first.prescription!)}.
+        {late.map((g) => (
+          <ActionRow key={'l' + g.key} g={g} tone="late">
+            {one(g) ? 'Scaduto' : 'Scaduti'} {range(g, 'maturity')}: non {one(g) ? 'matura' : 'maturano'} più interessi.
+            {' '}Prescrizione {range(g, 'prescription')}.
           </ActionRow>
         ))}
-        {soon.sort(byDate('maturity')).map((g) => (
-          <ActionRow key={g.key} g={g} tone="soon">
-            Scade il {fmtDate(g.first.maturity!)}, tra {fmtDuration(g.first.daysToMaturity!)}.
+        {soon.map((g) => (
+          <ActionRow key={'s' + g.key} g={g} tone="soon">
+            {one(g) ? 'Scade' : 'Scadono'} {range(g, 'maturity')}.
           </ActionRow>
         ))}
-        {weak.sort(byDate('maturity')).map((g) => (
-          <ActionRow key={g.key} g={g} tone="weak">
-            Nei prossimi 12 mesi rende {fmtPct(g.first.nextYearYield!)} netto, meno del {String(settings.benchmarkPct).replace('.', ',')}% di confronto.
+        {weak.map((g) => (
+          <ActionRow key={'w' + g.key} g={g} tone="weak">
+            Nei prossimi 12 mesi {one(g) ? 'rende' : 'rendono'} {fmtPct(g.first.nextYearYield!)} netto, meno del {bench}% di
+            confronto. Scadenza {range(g, 'maturity')}.
           </ActionRow>
         ))}
       </ul>
@@ -243,15 +268,34 @@ function ActionList({ assessed, settings }: { assessed: Assessment[]; settings: 
 function ActionRow({ g, tone, children }: { g: Group; tone: string; children: React.ReactNode }) {
   const b = g.first.buono
   const nominal = g.items.reduce((s, a) => s + a.buono.nominale, 0)
+  const fmtNom = (n: number) => (b.valuta === 'ITL' ? fmtLire(n) : fmtEur0(n))
+  const byDate = new Map<string, Assessment[]>()
+  for (const a of g.items) byDate.set(a.buono.sottoscritto, [...(byDate.get(a.buono.sottoscritto) ?? []), a])
   return (
     <li className={`action ${tone}`}>
       <span className="stamp">{b.serie}</span>
       <div>
         <div>{children}</div>
-        <div className="muted small">
-          {plural(g.items.length, 'buono', 'buoni')} sottoscritti il {fmtDate(b.sottoscritto)}, nominale{' '}
-          {b.valuta === 'ITL' ? fmtLire(nominal) : fmtEur0(nominal)}
-        </div>
+        {g.items.length === 1 ? (
+          <div className="muted small">
+            1 buono sottoscritto il {fmtDate(b.sottoscritto)}, nominale {fmtNom(nominal)}
+          </div>
+        ) : (
+          <details className="muted small">
+            <summary>
+              {g.items.length} buoni, nominale {fmtNom(nominal)}
+            </summary>
+            <ul className="detail-list">
+              {[...byDate.entries()].map(([date, items]) => (
+                <li key={date}>
+                  {items.length} × sottoscritt{items.length === 1 ? 'o' : 'i'} il {fmtDate(date)}, nominale{' '}
+                  {fmtNom(items.reduce((s, a) => s + a.buono.nominale, 0))}:{' '}
+                  {fmtEur(items.reduce((s, a) => s + (a.now?.net ?? 0), 0))}
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
       </div>
       <span className="amount">{fmtEur(g.net)}</span>
     </li>

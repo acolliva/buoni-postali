@@ -1,0 +1,3929 @@
+{
+ "series": [
+  {
+   "codes": [
+    "Q"
+   ],
+   "productType": "ordinario",
+   "currency": "ITL",
+   "issueFrom": "1986-07-01",
+   "issueTo": "1995-10-31",
+   "durationYears": 30,
+   "maturityRule": "31 December of the 30th calendar year after year of issue (per text printed on forms; Poste table rows 21-30)",
+   "capitalization": "Years 1-20: interest accrues per completed bimester (simple interest within the year) and is capitalized annually (compound) NET of withholding tax (DM 23/06/1997 art.7 c.3 for Q/R/S issued up to 31/12/1996). Years 21-30: simple interest (no capitalization), accrued per completed bimester, until 31 December of the 30th calendar year after the year of issue. No interest if redeemed before 12 months.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 5,
+     "grossRatePct": 8.0
+    },
+    {
+     "fromYear": 6,
+     "toYear": 10,
+     "grossRatePct": 9.0
+    },
+    {
+     "fromYear": 11,
+     "toYear": 15,
+     "grossRatePct": 10.5
+    },
+    {
+     "fromYear": 16,
+     "toYear": 20,
+     "grossRatePct": 12.0
+    },
+    {
+     "fromYear": 21,
+     "toYear": 30,
+     "grossRatePct": 12.0,
+     "simpleInterest": true
+    }
+   ],
+   "redemptionTablePer100": null,
+   "withholdingBySubperiod": [
+    {
+     "from": "1986-07-01",
+     "to": "1986-09-20",
+     "ratePct": 0
+    },
+    {
+     "from": "1986-09-21",
+     "to": "1987-08-31",
+     "ratePct": 6.25
+    },
+    {
+     "from": "1987-09-01",
+     "to": "1995-10-31",
+     "ratePct": 12.5
+    }
+   ],
+   "notes": "Instituted by DM Tesoro 13/06/1986 (art.4) from 01/07/1986; rates 8/9/10.5/12% by 5-year bracket. Q buoni issued from 01/11/1995 were re-classed as series R (stamped 'R/Q'), so Q buoni issued in 1994-1995 (up to 31/10/1995) carry Q rates with 12.5% withholding. Years 21-30: Poste table shows 12% simple; ABF decisions describe it as a fixed bimonthly amount = 12% simple interest computed on the capital reached at year 20 (Poste's position). The rates TABLE of the DM 1986 is 'omissis' in the copy I could read, so the exact base for years 21-30 (montante at year 20, net) is inferred from ABF decisions, not from the decree text. The original Q forms printed the per-bimester amounts in lire on the back; for real Q forms those printed figures are what Poste pays.",
+   "confidence": "medium",
+   "sources": [
+    "https://www.media.poste.it/2c626a71-3e8c-482b-a0e8-a81762655ebd/web/storico-buoni-ordinari-30anni",
+    "https://www.movimentoconsumatori.it/images/FilePDF/ServizioLegale/Varie/BuoniPostali/DecretoMinisteroTesoro13061986.pdf",
+    "https://www.cdp.it/resources/cms/documents/009014.pdf",
+    "https://www.arbitrobancariofinanziario.it/decisioni/2022/11/Dec-20221107-14271.PDF",
+    "https://www.arbitrobancariofinanziario.it/decisioni/2021/06/Dec-20210618-15117.PDF",
+    "https://www.cdp.it/resources/cms/documents/009007.pdf"
+   ]
+  },
+  {
+   "codes": [
+    "R"
+   ],
+   "productType": "ordinario",
+   "currency": "ITL",
+   "issueFrom": "1995-11-01",
+   "issueTo": "1996-11-30",
+   "durationYears": 30,
+   "capitalization": "Years 1-20: interest accrues per completed bimester (simple interest within the year) and is capitalized annually (compound) NET of withholding tax (DM 23/06/1997 art.7 c.3 for Q/R/S issued up to 31/12/1996). Years 21-30: simple interest (no capitalization), accrued per completed bimester, until 31 December of the 30th calendar year after the year of issue. No interest if redeemed before 12 months.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 5,
+     "grossRatePct": 7.0
+    },
+    {
+     "fromYear": 6,
+     "toYear": 10,
+     "grossRatePct": 8.0
+    },
+    {
+     "fromYear": 11,
+     "toYear": 15,
+     "grossRatePct": 9.0
+    },
+    {
+     "fromYear": 16,
+     "toYear": 20,
+     "grossRatePct": 11.5
+    },
+    {
+     "fromYear": 21,
+     "toYear": 30,
+     "grossRatePct": 11.5,
+     "simpleInterest": true
+    }
+   ],
+   "redemptionTablePer100": null,
+   "withholdingPct": 12.5,
+   "notes": "DM Tesoro 13/10/1995 (GU 31/10/1995 n.255) art.5, effective 01/11/1995. Table: years 1-20 'con capitalizzazione annuale', years 21-30 11.5% 'senza capitalizzazione annuale'. Q forms issued from 01/11/1995 = series R (stamped R/Q). R forms issued from 01/12/1996 are series S (DM 27/11/1996 art.2).",
+   "confidence": "high",
+   "sources": [
+    "https://www.cdp.it/resources/cms/documents/009007.pdf",
+    "https://www.media.poste.it/2c626a71-3e8c-482b-a0e8-a81762655ebd/web/storico-buoni-ordinari-30anni",
+    "https://www.cdp.it/resources/cms/documents/009564.pdf",
+    "https://www.cdp.it/resources/cms/documents/009014.pdf"
+   ]
+  },
+  {
+   "codes": [
+    "S"
+   ],
+   "productType": "ordinario",
+   "currency": "ITL",
+   "issueFrom": "1996-12-01",
+   "issueTo": "1997-06-23",
+   "durationYears": 30,
+   "capitalization": "Years 1-20: interest accrues per completed bimester (simple interest within the year) and is capitalized annually (compound) NET of withholding tax (DM 23/06/1997 art.7 c.3 for Q/R/S issued up to 31/12/1996). Years 21-30: simple interest (no capitalization), accrued per completed bimester, until 31 December of the 30th calendar year after the year of issue. No interest if redeemed before 12 months. Note: for S issued from 01/01/1997, DM 23/06/1997 art.7 says capitalization is net of substitute tax for art.2 D.Lgs 239/96 holders (individuals) and gross for other holders.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 5,
+     "grossRatePct": 5.5
+    },
+    {
+     "fromYear": 6,
+     "toYear": 10,
+     "grossRatePct": 6.5
+    },
+    {
+     "fromYear": 11,
+     "toYear": 15,
+     "grossRatePct": 7.5
+    },
+    {
+     "fromYear": 16,
+     "toYear": 20,
+     "grossRatePct": 9.0
+    },
+    {
+     "fromYear": 21,
+     "toYear": 30,
+     "grossRatePct": 0.5,
+     "simpleInterest": true
+    }
+   ],
+   "redemptionTablePer100": null,
+   "withholdingPct": 12.5,
+   "notes": "DM Tesoro 27/11/1996 (GU 30/11/1996 n.281), effective 01/12/1996. Annual capitalization 'al netto della ritenuta fiscale del 12,50%'. From year 21 to the 30th calendar year after issue: 0.50% simple interest (base not stated in decree; presumably montante at year 20). Placement ended on publication of DM 23/06/1997 (GU 24/06/1997).",
+   "confidence": "high",
+   "sources": [
+    "https://www.cdp.it/resources/cms/documents/009564.pdf",
+    "https://www.cdp.it/resources/cms/documents/009014.pdf",
+    "https://www.media.poste.it/2c626a71-3e8c-482b-a0e8-a81762655ebd/web/storico-buoni-ordinari-30anni"
+   ]
+  },
+  {
+   "codes": [
+    "T"
+   ],
+   "productType": "ordinario",
+   "currency": "ITL",
+   "issueFrom": "1997-07-01",
+   "issueTo": "1997-12-31",
+   "durationYears": 30,
+   "capitalization": "Years 1-20: bimonthly accrual, annual compounding. The decree's table note says capitalization 'al netto dell'imposta sostitutiva del 12,50%'; art.7 c.1 says T is capitalized GROSS for holders NOT in art.2 D.Lgs 239/96 (i.e. non-individuals). For individuals the table note (net) is the only indication. Years 21-30: 0.50% simple interest until 31/12 of 30th calendar year after issue.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 5,
+     "grossRatePct": 4.75
+    },
+    {
+     "fromYear": 6,
+     "toYear": 10,
+     "grossRatePct": 5.75
+    },
+    {
+     "fromYear": 11,
+     "toYear": 15,
+     "grossRatePct": 6.75
+    },
+    {
+     "fromYear": 16,
+     "toYear": 20,
+     "grossRatePct": 8.25
+    },
+    {
+     "fromYear": 21,
+     "toYear": 30,
+     "grossRatePct": 0.5,
+     "simpleInterest": true
+    }
+   ],
+   "redemptionTablePer100": null,
+   "withholdingPct": 12.5,
+   "notes": "DM Tesoro 23/06/1997 (GU 24/06/1997 n.145) art.6, effective 01/07/1997. Net vs gross capitalization for individuals: treat as NET (table note), but this is ambiguous.",
+   "confidence": "medium",
+   "sources": [
+    "https://www.cdp.it/resources/cms/documents/009014.pdf",
+    "https://www.media.poste.it/2c626a71-3e8c-482b-a0e8-a81762655ebd/web/storico-buoni-ordinari-30anni"
+   ]
+  },
+  {
+   "codes": [
+    "U"
+   ],
+   "productType": "ordinario",
+   "currency": "ITL",
+   "issueFrom": "1998-01-01",
+   "issueTo": "1998-12-09",
+   "durationYears": 30,
+   "capitalization": "Years 1-20: bimonthly accrual, annual compounding; years 21-30: 0.50% simple interest. Whether capitalization is gross or net of the 12.5% tax is NOT confirmed (instituting decree not found).",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 5,
+     "grossRatePct": 4.25
+    },
+    {
+     "fromYear": 6,
+     "toYear": 10,
+     "grossRatePct": 4.75
+    },
+    {
+     "fromYear": 11,
+     "toYear": 15,
+     "grossRatePct": 5.5
+    },
+    {
+     "fromYear": 16,
+     "toYear": 20,
+     "grossRatePct": 6.5
+    },
+    {
+     "fromYear": 21,
+     "toYear": 30,
+     "grossRatePct": 0.5,
+     "simpleInterest": true
+    }
+   ],
+   "redemptionTablePer100": null,
+   "withholdingPct": 12.5,
+   "notes": "Rates and dates only from the Poste summary table (edition Sept 2017). The instituting DM (late 1997) was not located on cdp.it. Successor series V (from 10/12/1998) is capitalized gross, so U is probably gross too, but unverified.",
+   "confidence": "medium",
+   "sources": [
+    "https://www.media.poste.it/2c626a71-3e8c-482b-a0e8-a81762655ebd/web/storico-buoni-ordinari-30anni"
+   ]
+  },
+  {
+   "codes": [
+    "V"
+   ],
+   "productType": "ordinario",
+   "currency": "ITL",
+   "issueFrom": "1998-12-10",
+   "issueTo": "1999-03-01",
+   "durationYears": 30,
+   "capitalization": "Years 1-20: interest per completed bimester, capitalized annually GROSS of the 12.50% substitute tax ('al lordo'); tax applied once on total interest at redemption. Years 21-30: 0.50% simple interest until 31/12 of the 30th calendar year after year of issue. No interest if redeemed before 12 months.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 5,
+     "grossRatePct": 3.5
+    },
+    {
+     "fromYear": 6,
+     "toYear": 10,
+     "grossRatePct": 4.15
+    },
+    {
+     "fromYear": 11,
+     "toYear": 15,
+     "grossRatePct": 4.75
+    },
+    {
+     "fromYear": 16,
+     "toYear": 20,
+     "grossRatePct": 6.0
+    },
+    {
+     "fromYear": 21,
+     "toYear": 30,
+     "grossRatePct": 0.5,
+     "simpleInterest": true
+    }
+   ],
+   "redemptionTablePer100": null,
+   "withholdingPct": 12.5,
+   "notes": "DM Tesoro 07/12/1998 (GU 09/12/1998 n.287), effective 10/12/1998. Issue window dates from Poste summary table.",
+   "confidence": "high",
+   "sources": [
+    "https://www.cdp.it/resources/cms/documents/009005.pdf",
+    "https://www.media.poste.it/2c626a71-3e8c-482b-a0e8-a81762655ebd/web/storico-buoni-ordinari-30anni"
+   ]
+  },
+  {
+   "codes": [
+    "W"
+   ],
+   "productType": "ordinario",
+   "currency": "ITL",
+   "issueFrom": "1999-03-02",
+   "issueTo": "1999-12-20",
+   "durationYears": 30,
+   "capitalization": "Years 1-20: interest per completed bimester, capitalized annually GROSS of the 12.50% substitute tax ('al lordo'); tax applied once on total interest at redemption. Years 21-30: 0.50% simple interest until 31/12 of the 30th calendar year after year of issue. No interest if redeemed before 12 months.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 5,
+     "grossRatePct": 3.0
+    },
+    {
+     "fromYear": 6,
+     "toYear": 10,
+     "grossRatePct": 3.5
+    },
+    {
+     "fromYear": 11,
+     "toYear": 15,
+     "grossRatePct": 4.25
+    },
+    {
+     "fromYear": 16,
+     "toYear": 20,
+     "grossRatePct": 5.25
+    },
+    {
+     "fromYear": 21,
+     "toYear": 30,
+     "grossRatePct": 0.5,
+     "simpleInterest": true
+    }
+   ],
+   "redemptionTablePer100": null,
+   "withholdingPct": 12.5,
+   "notes": "DM Tesoro 26/02/1999, effective day after GU publication. Issue window dates from Poste summary table. W: user notes lire/euro — the W decree text I read does not mention euro denominations; X is the first decree that explicitly provides euro denominations. Lire-denominated X/W buoni must be converted at 1936.27.",
+   "confidence": "high",
+   "sources": [
+    "https://www.cdp.it/resources/cms/documents/009015.pdf",
+    "https://www.media.poste.it/2c626a71-3e8c-482b-a0e8-a81762655ebd/web/storico-buoni-ordinari-30anni"
+   ]
+  },
+  {
+   "codes": [
+    "X"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "1999-12-21",
+   "issueTo": "2000-03-04",
+   "durationYears": 30,
+   "capitalization": "Years 1-20: interest per completed bimester, capitalized annually GROSS of the 12.50% substitute tax ('al lordo'); tax applied once on total interest at redemption. Years 21-30: 0.50% simple interest until 31/12 of the 30th calendar year after year of issue. No interest if redeemed before 12 months.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 5,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 6,
+     "toYear": 10,
+     "grossRatePct": 4.0
+    },
+    {
+     "fromYear": 11,
+     "toYear": 15,
+     "grossRatePct": 4.75
+    },
+    {
+     "fromYear": 16,
+     "toYear": 20,
+     "grossRatePct": 5.75
+    },
+    {
+     "fromYear": 21,
+     "toYear": 30,
+     "grossRatePct": 0.5,
+     "simpleInterest": true
+    }
+   ],
+   "redemptionTablePer100": null,
+   "withholdingPct": 12.5,
+   "notes": "DM Tesoro 16/12/1999, effective day after GU publication; issued in EURO (50..5000) and, while stocks last, in lire (50.000..5.000.000). Issue window dates from Poste summary table. W: user notes lire/euro — the W decree text I read does not mention euro denominations; X is the first decree that explicitly provides euro denominations. Lire-denominated X/W buoni must be converted at 1936.27.",
+   "confidence": "high",
+   "sources": [
+    "https://www.cdp.it/resources/cms/documents/009008.pdf",
+    "https://www.media.poste.it/2c626a71-3e8c-482b-a0e8-a81762655ebd/web/storico-buoni-ordinari-30anni"
+   ]
+  },
+  {
+   "codes": [
+    "A8"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2003-06-29",
+   "issueTo": "2003-10-04",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.75
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 3
+    },
+    {
+     "fromYear": 6,
+     "toYear": 9,
+     "grossRatePct": 4.25
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 4.75
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 5
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.75,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.785,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 112.858144,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 139.634004,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 176.521096,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 225.290621,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 225.290621,
+     "computed": false,
+     "officialCoefficient": 2.25290621
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 2.25290621; formula reproduces it: True (computed 2.25290621). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/83a1eee8-6c8c-4caf-8174-3c27fa282efd/web/fia-a8",
+    "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+   ]
+  },
+  {
+   "codes": [
+    "A9"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2003-10-05",
+   "issueTo": "2004-04-10",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 2,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.7
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 3.2
+    },
+    {
+     "fromYear": 6,
+     "toYear": 9,
+     "grossRatePct": 4.45
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 4.95
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 5.2
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 102.0,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 104.04,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 113.796835,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 142.149849,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 181.42282,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 233.760223,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 233.760223,
+     "computed": false,
+     "officialCoefficient": 2.33760223
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 2.33760223; formula reproduces it: True (computed 2.33760223). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/2e82fcef-f9ba-4a89-8143-0e0a433f66d7/web/fia-a9",
+    "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+   ]
+  },
+  {
+   "codes": [
+    "B1"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2004-04-11",
+   "issueTo": "2004-10-30",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.6
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.3
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 3
+    },
+    {
+     "fromYear": 6,
+     "toYear": 9,
+     "grossRatePct": 4
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 4.8
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 5
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.6,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.632,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 112.471882,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 137.891851,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 174.651786,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 222.904855,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 222.904855,
+     "computed": false,
+     "officialCoefficient": 2.22904855
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 2.22904855; formula reproduces it: True (computed 2.22904855). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/1f8fdf6b-6cf8-465c-bf4c-94d1093f5419/web/fi-b1",
+    "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+   ]
+  },
+  {
+   "codes": [
+    "B5"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2005-03-01",
+   "issueTo": "2005-03-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.4
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.65
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2.4
+    },
+    {
+     "fromYear": 6,
+     "toYear": 9,
+     "grossRatePct": 3.2
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 3.6
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 4.15
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.4,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.0731,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 110.241578,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 129.545988,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 155.425497,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 190.466515,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 190.466515,
+     "computed": false,
+     "officialCoefficient": 1.90466515
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.90466515; formula reproduces it: True (computed 1.90466515). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/5cf4e2e7-72b2-411e-9daa-d3305ba82925/web/fi-b5",
+    "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+   ]
+  },
+  {
+   "codes": [
+    "B9"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2005-07-01",
+   "issueTo": "2005-07-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 2,
+     "grossRatePct": 1.2
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.25
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 1.6
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.65
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 2.9
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 3.5
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.2,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 102.4144,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 107.039352,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 121.577287,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 141.076377,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 167.554481,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 167.554481,
+     "computed": false,
+     "officialCoefficient": 1.67554481
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.67554481; formula reproduces it: True (computed 1.67554481). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/6dcd5101-3120-4fef-9819-6e69e4dd2752/web/fi-b9",
+    "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+   ]
+  },
+  {
+   "codes": [
+    "B12"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2005-10-01",
+   "issueTo": "2005-10-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.25
+    },
+    {
+     "fromYear": 2,
+     "toYear": 3,
+     "grossRatePct": 1.35
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 1.5
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.25
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.55
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 3.4
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.25,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 102.616875,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 107.145669,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 121.164915,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 140.189215,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 165.698012,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 165.698012,
+     "computed": false,
+     "officialCoefficient": 1.65698012
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.65698012; formula reproduces it: True (computed 1.65698012). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/d316065e-9ac9-4f11-9145-54e6bba239d9/web/fi-b12",
+    "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+   ]
+  },
+  {
+   "codes": [
+    "B13"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2005-11-01",
+   "issueTo": "2005-11-30",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.45
+    },
+    {
+     "fromYear": 2,
+     "toYear": 3,
+     "grossRatePct": 1.55
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 1.75
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.8
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 3.1
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 3.65
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.45,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.022475,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 108.313039,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 123.986205,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 145.203584,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 173.709619,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 173.709619,
+     "computed": false,
+     "officialCoefficient": 1.73709619
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.73709619; formula reproduces it: True (computed 1.73709619). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/268e560c-c940-4480-a240-1a010076ed9c/web/fi-b13",
+    "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+   ]
+  },
+  {
+   "codes": [
+    "B14"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2005-12-01",
+   "issueTo": "2005-12-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.6
+    },
+    {
+     "fromYear": 2,
+     "toYear": 3,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 1.9
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.8
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 3.0
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 3.6
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.6,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.3272,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 109.114881,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 124.782926,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 145.500277,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 173.645126,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 173.645126,
+     "computed": false,
+     "officialCoefficient": 1.73645126
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.73645126; formula reproduces it: True (computed 1.73645126). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/483c4858-a65b-42d7-beba-20f12424f6e8/web/fi-b14",
+    "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+   ]
+  },
+  {
+   "codes": [
+    "B16"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2006-02-01",
+   "issueTo": "2006-02-28",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.8
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.9
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2.15
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.55
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 3.05
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 3.7
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.7,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.5306,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 110.082848,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 126.196577,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 147.576877,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 176.975072,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 176.975072,
+     "computed": false,
+     "officialCoefficient": 1.76975072
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.76975072; formula reproduces it: True (computed 1.76975072). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/a9adcd13-bda9-4069-b6db-6ac0a2013646/web/fi-b16",
+    "https://www.media.poste.it/afbdaa81-6674-450b-86cd-0201c4363c5d/web/storico-buoni-ordinari-2007"
+   ]
+  },
+  {
+   "codes": [
+    "B19"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2006-05-01",
+   "issueTo": "2006-05-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.95
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2.1
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.25
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2.45
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 10,
+     "toYear": 14,
+     "grossRatePct": 3.45
+    },
+    {
+     "fromYear": 15,
+     "toYear": 20,
+     "grossRatePct": 4.15
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.95,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 104.09095,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 111.7121,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 130.322506,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 155.453562,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 190.500907,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 190.500907,
+     "computed": false,
+     "officialCoefficient": 1.90500907
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.90500907; formula reproduces it: True (computed 1.90500907). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/d18f1bef-9b73-463e-9e2f-2549cd988c60/web/fi-b19",
+    "https://www.media.poste.it/afbdaa81-6674-450b-86cd-0201c4363c5d/web/storico-buoni-ordinari-2007"
+   ]
+  },
+  {
+   "codes": [
+    "B28"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2007-02-01",
+   "issueTo": "2007-02-28",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 2.1
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.25
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2.3
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.95
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 3.15
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.6
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 3.95
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 102.1,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 104.3462,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 111.658354,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 127.38018,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 149.395853,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 180.107391,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 180.107391,
+     "computed": false,
+     "officialCoefficient": 1.80107391
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.80107391; formula reproduces it: True (computed 1.80107391). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/f7dce727-2f65-40e4-b8fa-eeb5e23d7bce/web/fi-b28",
+    "https://www.media.poste.it/afbdaa81-6674-450b-86cd-0201c4363c5d/web/storico-buoni-ordinari-2007"
+   ]
+  },
+  {
+   "codes": [
+    "B29"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2007-03-01",
+   "issueTo": "2007-03-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 2.1
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.25
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2.3
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.75
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 3.05
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.5
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 3.85
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 102.1,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 104.3462,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 111.658354,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 127.00911,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 148.240615,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 177.855545,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 177.855545,
+     "computed": false,
+     "officialCoefficient": 1.77855545
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.77855545; formula reproduces it: True (computed 1.77855545). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/787840d0-4e9c-486e-a50d-656357decf71/web/fi-b29",
+    "https://www.media.poste.it/afbdaa81-6674-450b-86cd-0201c4363c5d/web/storico-buoni-ordinari-2007"
+   ]
+  },
+  {
+   "codes": [
+    "B39"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2008-01-01",
+   "issueTo": "2008-01-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2.25
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2.4
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.45
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 3.05
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.8
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 4.25
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 102.2,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 104.4995,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 112.150696,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 128.316494,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 151.370094,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 184.783411,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 184.783411,
+     "computed": false,
+     "officialCoefficient": 1.84783411
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.84783411; formula reproduces it: True (computed 1.84783411). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/fc53c61e-89c9-4e82-854d-183604813199/web/fi-b39",
+    "https://www.media.poste.it/547d0ff9-b474-4b1f-b12a-fc0720ffab93/web/storico-buoni-ordinari-2009"
+   ]
+  },
+  {
+   "codes": [
+    "B40"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2008-02-01",
+   "issueTo": "2008-02-29",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.6
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.8
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.7
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 3.0
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.5
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 3.9
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.6,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.3272,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 109.436648,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 123.333981,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 143.671954,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 172.62327,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 172.62327,
+     "computed": false,
+     "officialCoefficient": 1.7262327
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.7262327; formula reproduces it: True (computed 1.72623270). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/e3e8beef-132e-48d8-9f71-fa558c016261/web/fi-b40",
+    "https://www.media.poste.it/547d0ff9-b474-4b1f-b12a-fc0720ffab93/web/storico-buoni-ordinari-2009"
+   ]
+  },
+  {
+   "codes": [
+    "B41"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2008-03-01",
+   "issueTo": "2008-03-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.6
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.8
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.7
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 3.05
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.55
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 4.0
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.6,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.3272,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 109.436648,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 123.333981,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 144.020673,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 173.710096,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 173.710096,
+     "computed": false,
+     "officialCoefficient": 1.73710096
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.73710096; formula reproduces it: True (computed 1.73710096). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/fd583fd3-1b69-49df-aab6-fd09873ecca7/web/fi-b41",
+    "https://www.media.poste.it/547d0ff9-b474-4b1f-b12a-fc0720ffab93/web/storico-buoni-ordinari-2009"
+   ]
+  },
+  {
+   "codes": [
+    "B45"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2008-07-01",
+   "issueTo": "2008-07-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2.45
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 2.65
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.75
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.8
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.9
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.7
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 4.05
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 102.35,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 104.857575,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 113.250879,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 130.019008,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 153.230721,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 185.62207,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 185.62207,
+     "computed": false,
+     "officialCoefficient": 1.8562207
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.8562207; formula reproduces it: True (computed 1.85622070). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/1db61dbc-00cc-40fc-b14b-47d314a577c3/web/fi-b45",
+    "https://www.media.poste.it/547d0ff9-b474-4b1f-b12a-fc0720ffab93/web/storico-buoni-ordinari-2009"
+   ]
+  },
+  {
+   "codes": [
+    "B50"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2008-12-01",
+   "issueTo": "2008-12-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.6
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.65
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 4,
+     "toYear": 5,
+     "grossRatePct": 1.85
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 1.95
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 2.6
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.1
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 3.6
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.6,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.2764,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 108.954234,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 120.412011,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 137.568157,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 162.597744,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 162.597744,
+     "computed": false,
+     "officialCoefficient": 1.62597744
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.62597744; formula reproduces it: True (computed 1.62597744). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/50e42548-da25-4650-9c3f-66a293a5d038/web/fi-b50",
+    "https://www.media.poste.it/547d0ff9-b474-4b1f-b12a-fc0720ffab93/web/storico-buoni-ordinari-2009"
+   ]
+  },
+  {
+   "codes": [
+    "B51"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2009-01-01",
+   "issueTo": "2009-01-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.2
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.3
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.35
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 1.5
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 1.55
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 1.65
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 1.9
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 3.6
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.2,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 102.5156,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 107.092654,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 116.624699,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 131.627375,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 154.822501,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 154.822501,
+     "computed": false,
+     "officialCoefficient": 1.54822501
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.54822501; formula reproduces it: True (computed 1.54822501). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/c96e9983-fe03-4332-af51-30ee6e9c1480/web/fi-b51",
+    "https://www.media.poste.it/547d0ff9-b474-4b1f-b12a-fc0720ffab93/web/storico-buoni-ordinari-2009"
+   ]
+  },
+  {
+   "codes": [
+    "B56"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2009-06-01",
+   "issueTo": "2009-06-30",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.05
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.25
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.5
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 1.8
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 2.05
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.45
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 3.05
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.6
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 4.4
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.05,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 102.313125,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 107.514273,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 119.813539,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 139.977307,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 170.953754,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 170.953754,
+     "computed": false,
+     "officialCoefficient": 1.70953754
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.70953754; formula reproduces it: True (computed 1.70953754). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/fa36f24b-0361-47d3-9b74-8fa5d954ff0d/web/fi-b56",
+    "https://www.media.poste.it/547d0ff9-b474-4b1f-b12a-fc0720ffab93/web/storico-buoni-ordinari-2009"
+   ]
+  },
+  {
+   "codes": [
+    "B60"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2009-10-01",
+   "issueTo": "2009-10-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 0.65
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 0.8
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.1
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 1.3
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 1.45
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 1.8
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.05
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 2.75
+    },
+    {
+     "fromYear": 15,
+     "toYear": 15,
+     "grossRatePct": 3.3
+    },
+    {
+     "fromYear": 16,
+     "toYear": 17,
+     "grossRatePct": 3.35
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 4.15
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 100.65,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 101.4552,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 105.41125,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 115.302158,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 132.759338,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 160.200498,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 160.200498,
+     "computed": false,
+     "officialCoefficient": 1.60200498
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.60200498; formula reproduces it: True (computed 1.60200498). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/1881fc62-9533-42ce-8b63-e972e088ffb5/web/fi-b60",
+    "https://www.media.poste.it/547d0ff9-b474-4b1f-b12a-fc0720ffab93/web/storico-buoni-ordinari-2009"
+   ]
+  },
+  {
+   "codes": [
+    "B67"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2010-05-01",
+   "issueTo": "2010-05-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 0.55
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 0.6
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 0.8
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 0.95
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 1.1
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 1.3
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 1.45
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 1.65
+    },
+    {
+     "fromYear": 11,
+     "toYear": 14,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.0
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 4.0
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 100.55,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 101.1533,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 104.063413,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 111.719361,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 126.274907,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 150.69246,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 150.69246,
+     "computed": false,
+     "officialCoefficient": 1.5069246
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.5069246; formula reproduces it: True (computed 1.50692460). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/da59163f-bd94-4378-9984-1663ca0a8ab3/web/fi-b67",
+    "https://www.media.poste.it/e4c42004-320f-49a6-b62a-c8a8341b9841/web/storico-buoni-ordinari-2011"
+   ]
+  },
+  {
+   "codes": [
+    "B73"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2010-11-01",
+   "issueTo": "2010-11-30",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 0.75
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 0.85
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.05
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 1.2
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 1.35
+    },
+    {
+     "fromYear": 6,
+     "toYear": 7,
+     "grossRatePct": 1.55
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 1.65
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 1.85
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 2.45
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 13,
+     "toYear": 14,
+     "grossRatePct": 2.65
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.15
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 4.1
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 100.75,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 101.606375,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 105.308043,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 114.287095,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 130.442815,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 156.570817,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 156.570817,
+     "computed": false,
+     "officialCoefficient": 1.56570817
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.56570817; formula reproduces it: True (computed 1.56570817). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/5bcd4c94-6b95-430d-ae9d-971aa92eb458/web/fi-b73",
+    "https://www.media.poste.it/e4c42004-320f-49a6-b62a-c8a8341b9841/web/storico-buoni-ordinari-2011"
+   ]
+  },
+  {
+   "codes": [
+    "B75"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2011-01-01",
+   "issueTo": "2011-01-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.1
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.2
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.45
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 1.6
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 1.75
+    },
+    {
+     "fromYear": 6,
+     "toYear": 6,
+     "grossRatePct": 1.95
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 2.05
+    },
+    {
+     "fromYear": 8,
+     "toYear": 8,
+     "grossRatePct": 2.1
+    },
+    {
+     "fromYear": 9,
+     "toYear": 9,
+     "grossRatePct": 2.15
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 2.95
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 3.0
+    },
+    {
+     "fromYear": 13,
+     "toYear": 14,
+     "grossRatePct": 3.2
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 3.7
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 4.7
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.1,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 102.3132,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 107.302995,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 119.169206,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 139.561546,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 172.251626,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 172.251626,
+     "computed": false,
+     "officialCoefficient": 1.72251626
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.72251626; formula reproduces it: True (computed 1.72251626). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/8d547bea-a568-4533-9bf8-8d8305c7c390/web/fi-b75",
+    "https://www.media.poste.it/e4c42004-320f-49a6-b62a-c8a8341b9841/web/storico-buoni-ordinari-2011"
+   ]
+  },
+  {
+   "codes": [
+    "B81"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2011-07-01",
+   "issueTo": "2011-07-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.55
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.7
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 2.1
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 2.3
+    },
+    {
+     "fromYear": 6,
+     "toYear": 6,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 2.6
+    },
+    {
+     "fromYear": 8,
+     "toYear": 8,
+     "grossRatePct": 2.7
+    },
+    {
+     "fromYear": 9,
+     "toYear": 9,
+     "grossRatePct": 2.8
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 3.0
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 3.6
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 3.75
+    },
+    {
+     "fromYear": 13,
+     "toYear": 13,
+     "grossRatePct": 3.85
+    },
+    {
+     "fromYear": 14,
+     "toYear": 14,
+     "grossRatePct": 3.95
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 4.45
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 5.45
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.55,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.27635,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 110.0278,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 125.827172,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 152.497153,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 195.082529,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 195.082529,
+     "computed": false,
+     "officialCoefficient": 1.95082529
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.95082529; formula reproduces it: True (computed 1.95082529). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/5688796e-4ac6-4081-a3f4-6562a078b68e/web/fi-b81",
+    "https://www.media.poste.it/e4c42004-320f-49a6-b62a-c8a8341b9841/web/storico-buoni-ordinari-2011"
+   ]
+  },
+  {
+   "codes": [
+    "B83"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2011-09-01",
+   "issueTo": "2011-09-30",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.4
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.6
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.95
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 2.05
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 6,
+     "toYear": 6,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 2.45
+    },
+    {
+     "fromYear": 8,
+     "toYear": 8,
+     "grossRatePct": 2.55
+    },
+    {
+     "fromYear": 9,
+     "toYear": 9,
+     "grossRatePct": 2.65
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 2.8
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 3.4
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 3.6
+    },
+    {
+     "fromYear": 13,
+     "toYear": 14,
+     "grossRatePct": 3.75
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 4.25
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 5.2
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.4,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.0224,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 109.542538,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 124.299774,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 149.417997,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 189.061133,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 189.061133,
+     "computed": false,
+     "officialCoefficient": 1.89061133
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.89061133; formula reproduces it: True (computed 1.89061133). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/23ae18ea-f899-4b42-9e32-de4b91670438/web/fi-b83",
+    "https://www.media.poste.it/e4c42004-320f-49a6-b62a-c8a8341b9841/web/storico-buoni-ordinari-2011"
+   ]
+  },
+  {
+   "codes": [
+    "B87"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2012-01-01",
+   "issueTo": "2012-01-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2.2
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.6
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 2.8
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 3
+    },
+    {
+     "fromYear": 6,
+     "toYear": 6,
+     "grossRatePct": 3.15
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 8,
+     "toYear": 8,
+     "grossRatePct": 3.4
+    },
+    {
+     "fromYear": 9,
+     "toYear": 9,
+     "grossRatePct": 3.5
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 3.8
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 4.4
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 4.6
+    },
+    {
+     "fromYear": 13,
+     "toYear": 14,
+     "grossRatePct": 4.75
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 5.45
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 6.5
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 102.0,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 104.244,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 113.247538,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 133.981952,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 169.290713,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 227.39197,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 227.39197,
+     "computed": false,
+     "officialCoefficient": 2.2739197
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 2.2739197; formula reproduces it: True (computed 2.27391970). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/dc8a9692-47e6-41ff-953b-d176cd0c5d0e/web/fi-b87",
+    "https://www.media.poste.it/57135673-eb8c-4e79-ab65-5e85e19ec211/web/storico-buoni-ordinari-2013"
+   ]
+  },
+  {
+   "codes": [
+    "B88"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2012-02-01",
+   "issueTo": "2012-02-29",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.75
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2.05
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.4
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 2.65
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 6,
+     "toYear": 6,
+     "grossRatePct": 3.05
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 8,
+     "toYear": 8,
+     "grossRatePct": 3.45
+    },
+    {
+     "fromYear": 9,
+     "toYear": 9,
+     "grossRatePct": 3.6
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 3.9
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 4.5
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 4.7
+    },
+    {
+     "fromYear": 13,
+     "toYear": 14,
+     "grossRatePct": 4.85
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 5.55
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 6.5
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.75,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.835875,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 112.256277,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 133.000872,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 168.854472,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 227.236382,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 227.236382,
+     "computed": false,
+     "officialCoefficient": 2.27236382
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 2.27236382; formula reproduces it: True (computed 2.27236382). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/17f2b446-f930-4f2b-ad49-33b5d1436f7e/web/fi-b88",
+    "https://www.media.poste.it/57135673-eb8c-4e79-ab65-5e85e19ec211/web/storico-buoni-ordinari-2013"
+   ]
+  },
+  {
+   "codes": [
+    "B89"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2012-03-01",
+   "issueTo": "2012-03-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.75
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 2.05
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.4
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 2.65
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 2.85
+    },
+    {
+     "fromYear": 6,
+     "toYear": 6,
+     "grossRatePct": 3.05
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 8,
+     "toYear": 8,
+     "grossRatePct": 3.45
+    },
+    {
+     "fromYear": 9,
+     "toYear": 9,
+     "grossRatePct": 3.6
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 3.9
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 4.5
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 4.7
+    },
+    {
+     "fromYear": 13,
+     "toYear": 14,
+     "grossRatePct": 4.85
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 5.55
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 6.5
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.75,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.835875,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 112.256277,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 133.000872,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 168.854472,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 227.236382,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 227.236382,
+     "computed": false,
+     "officialCoefficient": 2.27236382
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 2.27236382; formula reproduces it: True (computed 2.27236382). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/d46d34c5-68e1-4a45-898e-02ac5ae2683b/web/fi-b89",
+    "https://www.media.poste.it/57135673-eb8c-4e79-ab65-5e85e19ec211/web/storico-buoni-ordinari-2013"
+   ]
+  },
+  {
+   "codes": [
+    "B92"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2012-06-01",
+   "issueTo": "2012-06-30",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1.45
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.75
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 2.1
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 2.35
+    },
+    {
+     "fromYear": 5,
+     "toYear": 5,
+     "grossRatePct": 2.55
+    },
+    {
+     "fromYear": 6,
+     "toYear": 6,
+     "grossRatePct": 2.75
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 2.95
+    },
+    {
+     "fromYear": 8,
+     "toYear": 8,
+     "grossRatePct": 3.15
+    },
+    {
+     "fromYear": 9,
+     "toYear": 9,
+     "grossRatePct": 3.35
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 3.65
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 4.2
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 4.4
+    },
+    {
+     "fromYear": 13,
+     "toYear": 14,
+     "grossRatePct": 4.6
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 5.2
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 6.1
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.45,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 103.225375,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 110.620527,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 129.298333,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 161.89754,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 214.002025,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 214.002025,
+     "computed": false,
+     "officialCoefficient": 2.14002025
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 2.14002025; formula reproduces it: True (computed 2.14002025). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/1ac769bd-3cfe-4398-857f-96e84d79e185/web/fi-b92",
+    "https://www.media.poste.it/57135673-eb8c-4e79-ab65-5e85e19ec211/web/storico-buoni-ordinari-2013"
+   ]
+  },
+  {
+   "codes": [
+    "B98"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2012-12-01",
+   "issueTo": "2013-01-09",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 1
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1.25
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.75
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 2
+    },
+    {
+     "fromYear": 5,
+     "toYear": 6,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 2.75
+    },
+    {
+     "fromYear": 8,
+     "toYear": 8,
+     "grossRatePct": 3
+    },
+    {
+     "fromYear": 9,
+     "toYear": 9,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 3.5
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 3.75
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 4
+    },
+    {
+     "fromYear": 13,
+     "toYear": 13,
+     "grossRatePct": 4.25
+    },
+    {
+     "fromYear": 14,
+     "toYear": 14,
+     "grossRatePct": 4.5
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 5
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 6
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 101.0,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 102.2625,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 108.786464,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 126.109613,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 155.650776,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 204.384277,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 204.384277,
+     "computed": false,
+     "officialCoefficient": 2.04384277
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 2.04384277; formula reproduces it: True (computed 2.04384277). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/3d357539-72f5-4b7d-ae18-fe534fec0645/web/fi-b98",
+    "https://www.media.poste.it/57135673-eb8c-4e79-ab65-5e85e19ec211/web/storico-buoni-ordinari-2013"
+   ]
+  },
+  {
+   "codes": [
+    "B99"
+   ],
+   "productType": "ordinario",
+   "currency": "EUR",
+   "issueFrom": "2013-01-10",
+   "issueTo": "2013-01-31",
+   "durationYears": 20,
+   "capitalization": "Interest accrues per completed bimester (simple interest within the year, rate/6 per bimester) and is capitalized annually (compound), gross of tax; 360/360. No interest if redeemed before 12 months from subscription. Non-interest-bearing from the day after the 20th anniversary.",
+   "rateSchedule": [
+    {
+     "fromYear": 1,
+     "toYear": 1,
+     "grossRatePct": 0.75
+    },
+    {
+     "fromYear": 2,
+     "toYear": 2,
+     "grossRatePct": 1
+    },
+    {
+     "fromYear": 3,
+     "toYear": 3,
+     "grossRatePct": 1.5
+    },
+    {
+     "fromYear": 4,
+     "toYear": 4,
+     "grossRatePct": 1.75
+    },
+    {
+     "fromYear": 5,
+     "toYear": 6,
+     "grossRatePct": 2.25
+    },
+    {
+     "fromYear": 7,
+     "toYear": 7,
+     "grossRatePct": 2.5
+    },
+    {
+     "fromYear": 8,
+     "toYear": 9,
+     "grossRatePct": 3
+    },
+    {
+     "fromYear": 10,
+     "toYear": 10,
+     "grossRatePct": 3.25
+    },
+    {
+     "fromYear": 11,
+     "toYear": 11,
+     "grossRatePct": 3.5
+    },
+    {
+     "fromYear": 12,
+     "toYear": 12,
+     "grossRatePct": 3.75
+    },
+    {
+     "fromYear": 13,
+     "toYear": 13,
+     "grossRatePct": 4
+    },
+    {
+     "fromYear": 14,
+     "toYear": 14,
+     "grossRatePct": 4.25
+    },
+    {
+     "fromYear": 15,
+     "toYear": 17,
+     "grossRatePct": 4.5
+    },
+    {
+     "fromYear": 18,
+     "toYear": 20,
+     "grossRatePct": 5.25
+    }
+   ],
+   "redemptionTablePer100": [
+    {
+     "afterMonths": 12,
+     "gross": 100.75,
+     "computed": true
+    },
+    {
+     "afterMonths": 24,
+     "gross": 101.7575,
+     "computed": true
+    },
+    {
+     "afterMonths": 60,
+     "gross": 107.455885,
+     "computed": true
+    },
+    {
+     "afterMonths": 120,
+     "gross": 123.362141,
+     "computed": true
+    },
+    {
+     "afterMonths": 180,
+     "gross": 150.08457,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 191.088671,
+     "computed": true
+    },
+    {
+     "afterMonths": 240,
+     "gross": 191.088671,
+     "computed": false,
+     "officialCoefficient": 1.91088671
+    }
+   ],
+   "withholdingPct": 12.5,
+   "notes": "Rates per year from the series' own Foglio Informativo (Tabella A). Official 20-year gross coefficient 1.91088671; formula reproduces it: True (computed 1.91088671). Net coefficient = 1 + (gross-1)*0.875 (verified on A8). Full bimonthly coefficient table (Tabella B) is in the FI.",
+   "confidence": "high",
+   "sources": [
+    "https://www.media.poste.it/433a5c10-ab20-4fb0-8b3e-c5e25404ef38/web/fi-b99",
+    "https://www.media.poste.it/57135673-eb8c-4e79-ab65-5e85e19ec211/web/storico-buoni-ordinari-2013"
+   ]
+  }
+ ],
+ "formulaVerified": "coef(months) = prod_{y<floor(months/12)} (1+r_y) * (1 + r_next * floor((months mod 12)/2)/6); 0 interest if months<12. Reproduces official Tabella B coefficients to 8 decimals for B5 (12,14,16,24,26,120,240 months), B98, B13, A8 and the 20-year coefficient of every B series listed. For 30-year series Q-X, same structure in years 1-20 (per Poste table footnote), then simple interest in years 21-30.",
+ "tax": {
+  "withholdingPct": 12.5,
+  "appliedAt": "Redemption for series capitalized gross (V, W, X, A*, B*): tax = 12.5% x (gross value - face). For Q, R, S (issued up to 31/12/1996) the tax is deducted at each annual capitalization (net compounding), DM 23/06/1997 art.7. Q issued 01/07/1986-20/09/1986 exempt; 21/09/1986-31/08/1987 6.25%.",
+  "stampDuty": {
+   "rule": "Imposta di bollo 0.20% per year on value (from 2014; 0.10% 2012, 0.15% 2013), only if total redemption value of the holder's buoni exceeds EUR 5,000; accrued and withheld at redemption. In early redemption it cannot bring the net below the nominal (excess refunded per FI).",
+   "confidence": "medium",
+   "caveats": "Rate and threshold confirmed on Poste FAQ and recent FI; the annual-rate history and the special treatment of paper buoni issued before 2009 come from secondary sources (quifinanza) and are unverified.",
+   "sources": [
+    "https://buonielibretti.poste.it/faq-buoni-e-libretti",
+    "https://www.media.poste.it/72a6b9df-97f4-4ac3-aa46-2245cb40e942/web/fi-tf120a201106",
+    "https://www.media.poste.it/dc8a9692-47e6-41ff-953b-d176cd0c5d0e/web/fi-b87",
+    "https://quifinanza.it/fisco-tasse/buoni-fruttiferi-postali-imposta-bollo-calcolo-2009/955909/"
+   ]
+  },
+  "sources": [
+   "https://www.cdp.it/resources/cms/documents/009014.pdf",
+   "https://www.cdp.it/resources/cms/documents/009005.pdf",
+   "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005",
+   "https://www.arbitrobancariofinanziario.it/decisioni/2022/11/Dec-20221107-14271.PDF"
+  ]
+ },
+ "maturityAndPrescription": {
+  "afterMaturity": "Buono becomes non-interest-bearing from the day after natural maturity (Poste FAQ: 'diventa infruttifero dal giorno successivo alla scadenza naturale'). B-series FI: no interest after the 20th anniversary.",
+  "maturity30y": "Q..Z (issued up to 27/12/2000): interest until 31 December of the 30th calendar year after the year of issue.",
+  "maturity20y": "A1 onward (from 28/12/2000): 20 years from subscription date.",
+  "prescriptionYears": 10,
+  "prescriptionRule": "Rights to capital and interest lapse 10 years after the maturity date (DM 19/12/2000 art.8; DM 06/10/2004 art.6-ter; FI art.10). Applies to paper buoni; dematerialized buoni are credited automatically at maturity. Prescribed buoni issued 1953-13/04/2001 go to MEF; from 14/04/2001 to the fund under L.266/2005. No refund after prescription.",
+  "examples": "Series R issued 1996 -> matures 31/12/2026 -> prescribes 31/12/2036 (Poste notice lists R (1996), T (1997), B15-B38 as expiring). B1 (2004) -> matures 2024 -> prescribes 2034.",
+  "sources": [
+   "https://buonielibretti.poste.it/faq-buoni-e-libretti",
+   "https://www.cdp.it/resources/cms/documents/009012.pdf",
+   "https://www.media.poste.it/be7be4d4-59a2-4c00-8bf7-33b379c7b67b/web/avviso-buoni-prescrizione-scadenza",
+   "https://www.media.poste.it/724fccaf-8ffa-4b38-ad90-2e10d2b17b40/web/avviso-buoni-prescritti",
+   "https://www.media.poste.it/f5410ba5-a5dc-4a46-894f-34bde0e86326/web/storico-buoni-ordinari-2005"
+  ]
+ },
+ "lireConversion": {
+  "lirePerEuro": 1936.27,
+  "basis": "Irrevocable rate (Reg. CE 2866/98).",
+  "rounding": "NOT confirmed from an official buoni source. Recommended: compute in full precision (lire face / 1936.27 x coefficient) and round final euro amount to the cent; Poste figures may differ by small amounts. Euro-changeover rules (Reg. CE 1103/97) round to nearest cent.",
+  "sources": [
+   "https://tuttocalcolato.it/calcolo/buoni-fruttiferi-postali-lire/",
+   "https://www.investireoggi.it/buoni-fruttiferi-postali-serie-q-r-e-s-ecco-il-calcolo-degli-interessi-fai-da-te/"
+  ]
+ },
+ "stampedRatesOverride": "DM 13/06/1986 art.5: series P forms issued from 01/07/1986 count as series Q, stamped 'Q/P' on front with new rates on back (rates 1-20). Where the stamp did not cover years 21-30, ABF/courts (Cass. SU 13979/2007) apply the amounts printed on the original P form for years 21-30, net of tax; for genuine Q forms no override (ABF Coord. 6142/2020; Cass. SU 3963/2019 confirms DM can modify rates). Same mechanism: Q forms issued from 01/11/1995 = R ('R/Q'); R forms from 01/12/1996 = S; and every later decree reclassifies old-series forms issued after its effective date. The calculator should key off the effective series by issue date, with an override flag for Q/P.",
+ "posteApi": "Not observed. Direct HTTP access to buonielibretti.poste.it, cdp.it and media.poste.it was blocked by this environment's egress proxy, so raw page source/JS could not be inspected. The text-extracted page at https://buonielibretti.poste.it/risparmiare-con-i-buoni shows only the heading 'Calcola il valore del tuo Buono' and no script, API, JSON or iframe URLs. CDP's calculator page (calcolo-rendimenti-buoni) says a new simulator is coming and links to poste.it. No public documented API found. Recommendation: use the extracted formula; to look for an XHR endpoint, open DevTools Network tab on the Poste page in a browser.",
+ "openQuestions": [
+  "Series U: instituting decree not found; whether capitalization is gross or net of tax is unverified (rates from Poste table only).",
+  "Series T for individuals: decree table says net capitalization, art.7 c.1 says gross for non-art.2 holders; individuals treatment inferred as net.",
+  "Years 21-30 for Q/R/S..X: base for simple interest assumed = value at end of year 20 (net for Q/R/S); decrees do not state it explicitly; ABF decisions describe Q as fixed bimonthly amount at 12% on year-20 capital.",
+  "Q years 21-30: Poste table shows 12%; original lire forms printed specific per-bimester amounts which govern for the paper buono.",
+  "Exact rounding used by Poste at redemption (per-step vs final; lire vs euro) is unconfirmed.",
+  "Stamp duty: rate history and treatment of paper buoni issued before 2009 come from secondary sources.",
+  "Whether the first-year no-interest rule applies to Q-U exactly as stated for later series (Poste 30-year table footnote says it does, but older decrees do not mention it).",
+  "Poste summary tables (2005-2013) do not label rows with series codes; all B-series requested were instead verified on their individual Fogli Informativi, so this does not affect the requested series. The 2012 table has 11 rate rows for 12 periods; B98 confirmed only via its own FI."
+ ]
+}
