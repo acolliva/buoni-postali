@@ -17,7 +17,7 @@ const TIPOLOGIE: { value: Tipologia; label: string; supported: boolean }[] = [
 
 export function Calculator() {
   const [tipologia, setTipologia] = useState<Tipologia>('ordinario')
-  const [sottoscritto, setSottoscritto] = useState('2005-03-07')
+  const [sottoscritto, setSottoscritto] = useState(todayIso())
   const [serieManual, setSerieManual] = useState<string | null>(null)
   const [nominale, setNominale] = useState(1000)
   const [target, setTarget] = useState(todayIso())
@@ -88,7 +88,11 @@ export function Calculator() {
                 {guessed ? (
                   <>
                     <span className="stamp">{guessed.codes[0]}</span>
-                    <span className="muted small">in emissione dal {fmtDate(guessed.issueFrom)} al {fmtDate(guessed.issueTo)}</span>
+                    <span className="muted small">
+                      {guessed.issueTo === '9999-12-31'
+                        ? `in emissione dal ${fmtDate(guessed.issueFrom)}`
+                        : `in emissione dal ${fmtDate(guessed.issueFrom)} al ${fmtDate(guessed.issueTo)}`}
+                    </span>
                   </>
                 ) : (
                   <span className="muted small">Nessuna serie nota per questa data</span>
@@ -152,7 +156,7 @@ export function Calculator() {
                 : sottoscritto
                   ? `Non ho ancora i dati della serie ordinaria in emissione il ${fmtDate(sottoscritto)}.`
                   : 'Inserisci la data di sottoscrizione.'}{' '}
-              Se conosci la serie scritta sul buono puoi indicarla a mano. Serie disponibili: {allCodes.join(', ')}.
+              Se conosci la serie scritta sul buono puoi indicarla a mano.
             </p>
           )}
           {supported && rule && resolved.reclassifiedFrom && (

@@ -2,6 +2,17 @@
 
 Full per-series data with source URLs: [`series-sources.json`](series-sources.json). The app's data lives in `src/domain/seriesData.ts`, generated from it.
 
+## Coverage
+
+Every ordinary series from Q (July 1986) to the one on sale today has its rules in the app (160 series), so the calculator can find the series from the subscription date alone. The only uncovered dates are 24–30 June 1997, between the end of S and the start of T, which the sources don't settle.
+
+- Q–X (1986–2000) and Y, Z (2000): 30-year series.
+- A1–A9 (2000–2004) and B1–B99 (2004–2013): 20-year series, one per month for the B series.
+- C01–C19 (2013–2016): 20-year series with irregular issue windows.
+- TF120A + date (from 18/02/2016): the same ordinary product with new codes; TF120A250624 is on sale since 24/06/2025.
+
+For 20-year series the app's formula reproduces the official 20-year redemption coefficient to 8 decimals wherever Poste publishes it (111 series; checked by `src/domain/seriesData.test.ts`). Series with medium confidence: C13, C16, TF120A160218, TF120A231005 — see `openQuestions` in [`series-sources-2.json`](series-sources-2.json). The data file is generated with `node scripts/generate-series.mjs`.
+
 ## How the app applies these rules
 - Q, R, S, T and U compound net of tax; U is an assumption (see open questions).
 - The Q tax bands for 1986–87 issues are not modelled: the app assumes 12.5% for every series.
