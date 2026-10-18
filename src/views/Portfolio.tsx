@@ -1,10 +1,11 @@
 import { useMemo, useRef, useState } from 'react'
 import { todayIso } from '../domain/dates'
-import { assess, type Assessment, type Status } from '../domain/engine'
-import type { Buono, ImportWarning } from '../domain/types'
+import { assess, valueAt, type Assessment, type Status } from '../domain/engine'
+import { withStableIds } from '../domain/identity'
+import type { ImportWarning } from '../domain/types'
 import { fmtDate, fmtEur, fmtEur0, fmtLire, fmtPct } from '../format'
 import { readWorkbook } from '../import/readWorkbook'
-import { DEFAULT_SETTINGS, useStored, type Settings } from '../state/storage'
+import { useAppState, type Rimborso, type Settings } from '../state/store'
 import { MaturityStrip } from './MaturityStrip'
 
 const STATUS_LABEL: Record<Status, string> = {
@@ -39,16 +40,24 @@ function groupBySeries(list: Assessment[]): Group[] {
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`
 
 export function Portfolio() {
-  const [buoni, setBuoni] = useStored<Buono[]>('bp.buoni', [])
-  const [settings, setSettings] = useStored<Settings>('bp.settings', DEFAULT_SETTINGS)
+  const { state, update, backend, saveProblem } = useAppState()
   const [warnings, setWarnings] = useState<ImportWarning[]>([])
   const [error, setError] = useState<string | null>(null)
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+  const [filter, setFilter] = useState<Filter>('all')
+  const tableRef = useRef<HTMLElement>(null)
   const today = todayIso()
 
-  const assessed = useMemo(
-    () => buoni.map((b) => assess(b, { today, ...settings })),
+  const buoni = useMemo(() => state?.buoni ?? [], [state?.buoni])
+  const settings = state?.settings
+  const rimborsi = useMemo(() => state?.rimborsi ?? {}, [state?.rimborsi])
+
+  const all = useMemo(
+    () => (settings ? buoni.map((b) => assess(b, { today, ...settings })) : []),
     [buoni, settings, today],
   )
+
+  if (!state || !settings) return <p className="muted">Caricamento dei dati…</p>
 
   async function importFile(file: File) {
     setError(null)
@@ -58,15 +67,50 @@ export function Portfolio() {
         setError('Nel file non c’è nessuna riga riconoscibile. Serve una riga di intestazione con serie, sottoscritto e valore.')
         return
       }
-      setBuoni(result.buoni)
+      update((s) => ({ ...s, buoni: withStableIds(result.buoni) }))
       setWarnings(result.warnings)
+      setSelected(new Set())
     } catch {
       setError('Il file non si apre come foglio Excel (.xlsx). Salvalo in formato .xlsx e riprova.')
     }
   }
 
+  function markRedeemed(ids: string[], data: string) {
+    update((s) => {
+      const rimborsi = { ...s.rimborsi }
+      for (const a of all) {
+        if (!ids.includes(a.buono.id) || rimborsi[a.buono.id] || !a.rule) continue
+        rimborsi[a.buono.id] = { data, netto: valueAt(a.buono, a.rule, data).net }
+      }
+      return { ...s, rimborsi }
+    })
+    setSelected(new Set())
+    if (filter === 'selezionati') setFilter('all')
+  }
+
+  function undoRedeemed(ids: string[]) {
+    update((s) => {
+      const rimborsi = { ...s.rimborsi }
+      for (const id of ids) delete rimborsi[id]
+      return { ...s, rimborsi }
+    })
+    setSelected(new Set())
+    if (filter === 'selezionati') setFilter('all')
+  }
+
+  function selectInTable(ids: string[]) {
+    setSelected(new Set(ids))
+    setFilter('selezionati')
+    tableRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const setSettings = (next: Settings) => update((s) => ({ ...s, settings: next }))
+
   if (!buoni.length) return <ImportZone onFile={importFile} error={error} />
 
+  const assessed = all.filter((a) => !rimborsi[a.buono.id])
+  const redeemed = all.filter((a) => rimborsi[a.buono.id])
+  const redeemedNet = redeemed.reduce((s, a) => s + rimborsi[a.buono.id].netto, 0)
   const known = assessed.filter((a) => a.rule)
   const unknown = assessed.filter((a) => !a.rule)
   const totalNet = known.reduce((s, a) => s + (a.now?.net ?? 0), 0)
@@ -77,20 +121,34 @@ export function Portfolio() {
 
   return (
     <>
-      <h1>
-        Oggi {buoni.length === 1 ? 'il tuo buono vale' : `i tuoi ${buoni.length} buoni valgono`} circa{' '}
-        <strong>{fmtEur0(totalNet)}</strong> netti.
-        {idle.length > 0 && (
-          <>
-            {' '}
-            {plural(idle.length, 'è scaduto', 'sono scaduti')} e non {idle.length === 1 ? 'rende' : 'rendono'} più:{' '}
-            <strong>{fmtEur0(idleNet)}</strong> da incassare.
-          </>
-        )}
-      </h1>
+      {saveProblem && (
+        <div className="warnings" role="alert">
+          {saveProblem === 'conflict'
+            ? 'I dati sono stati modificati da un altro dispositivo. Ricarica la pagina per vedere la versione aggiornata; le ultime modifiche fatte qui non sono state salvate.'
+            : 'Non riesco a salvare sul server di casa. Le modifiche restano in questo browser finché il server non torna raggiungibile.'}
+        </div>
+      )}
+
+      {assessed.length === 0 ? (
+        <h1>Tutti i {buoni.length} buoni risultano rimborsati.</h1>
+      ) : (
+        <h1>
+          Oggi {assessed.length === 1 ? 'il tuo buono vale' : `i tuoi ${assessed.length} buoni valgono`} circa{' '}
+          <strong>{fmtEur0(totalNet)}</strong> netti.
+          {idle.length > 0 && (
+            <>
+              {' '}
+              {plural(idle.length, 'è scaduto', 'sono scaduti')} e non {idle.length === 1 ? 'rende' : 'rendono'} più:{' '}
+              <strong>{fmtEur0(idleNet)}</strong> da incassare.
+            </>
+          )}
+        </h1>
+      )}
       <p className="lede">
         Valori calcolati al {fmtDate(today)} dalle regole di ogni serie, al netto della ritenuta del 12,5%. Imposta di
         bollo (0,20% annuo oltre 5.000 € di buoni) esclusa.
+        {redeemed.length > 0 &&
+          ` Già rimborsati: ${plural(redeemed.length, 'buono', 'buoni')} per circa ${fmtEur0(redeemedNet)}, esclusi dai totali.`}
         {unknown.length > 0 && ` ${plural(unknown.length, 'buono ha', 'buoni hanno')} una serie non ancora configurata ed è esclusa dai totali.`}
       </p>
 
@@ -124,7 +182,7 @@ export function Portfolio() {
         </div>
       )}
 
-      <ActionList assessed={known} settings={settings} />
+      <ActionList assessed={known} settings={settings} onSelect={selectInTable} />
 
       <section>
         <h2>Quando scadono</h2>
@@ -132,7 +190,18 @@ export function Portfolio() {
         <MaturityStrip assessed={known} today={today} />
       </section>
 
-      <BuoniTable assessed={assessed} />
+      <BuoniTable
+        ref={tableRef}
+        all={all}
+        rimborsi={rimborsi}
+        selected={selected}
+        setSelected={setSelected}
+        filter={filter}
+        setFilter={setFilter}
+        today={today}
+        onRedeem={markRedeemed}
+        onUndo={undoRedeemed}
+      />
 
       <section>
         <h2>Impostazioni</h2>
@@ -149,8 +218,8 @@ export function Portfolio() {
           <button
             className="btn ghost"
             onClick={() => {
-              if (confirm('Rimuovere tutti i buoni da questo browser?')) {
-                setBuoni([])
+              if (confirm('Rimuovere tutti i buoni e i rimborsi segnati? L’operazione vale per tutti i dispositivi.')) {
+                update((s) => ({ ...s, buoni: [], rimborsi: {} }))
                 setWarnings([])
               }
             }}
@@ -159,6 +228,12 @@ export function Portfolio() {
           </button>
         </div>
         {error && <p className="status scaduto">{error}</p>}
+        <p className="muted small">
+          {backend === 'server'
+            ? 'I dati sono salvati sul server di casa e condivisi da tutti i dispositivi della rete.'
+            : 'I dati sono salvati solo in questo browser. Avvia il server di casa per condividerli tra dispositivi.'}{' '}
+          Reimportando il file, i rimborsi segnati restano associati ai buoni con la stessa serie, numero, data e valore.
+        </p>
       </section>
     </>
   )
@@ -209,7 +284,7 @@ function ImportZone({ onFile, error }: { onFile: (f: File) => void; error: strin
   )
 }
 
-function ActionList({ assessed, settings }: { assessed: Assessment[]; settings: Settings }) {
+function ActionList({ assessed, settings, onSelect }: { assessed: Assessment[]; settings: Settings; onSelect: (ids: string[]) => void }) {
   const pick = (f: (a: Assessment) => boolean) => groupBySeries(assessed.filter(f))
   const urgent = pick((a) => a.status === 'prescrizione-vicina' || a.status === 'prescritto')
   const late = pick((a) => a.status === 'scaduto')
@@ -237,25 +312,25 @@ function ActionList({ assessed, settings }: { assessed: Assessment[]; settings: 
       <h2>Da fare</h2>
       <ul className="actions">
         {urgent.map((g) => (
-          <ActionRow key={'u' + g.key} g={g} tone="urgent">
+          <ActionRow key={'u' + g.key} g={g} tone="urgent" onSelect={onSelect}>
             {g.first.status === 'prescritto'
               ? `Prescritt${one(g) ? 'o' : 'i'} ${range(g, 'prescription')}: verifica con Poste se è ancora possibile il rimborso.`
               : `Da incassare prima della prescrizione, ${range(g, 'prescription')}. Dopo non si recupera nulla, né capitale né interessi.`}
           </ActionRow>
         ))}
         {late.map((g) => (
-          <ActionRow key={'l' + g.key} g={g} tone="late">
+          <ActionRow key={'l' + g.key} g={g} tone="late" onSelect={onSelect}>
             {one(g) ? 'Scaduto' : 'Scaduti'} {range(g, 'maturity')}: non {one(g) ? 'matura' : 'maturano'} più interessi.
             {' '}Prescrizione {range(g, 'prescription')}.
           </ActionRow>
         ))}
         {soon.map((g) => (
-          <ActionRow key={'s' + g.key} g={g} tone="soon">
+          <ActionRow key={'s' + g.key} g={g} tone="soon" onSelect={onSelect}>
             {one(g) ? 'Scade' : 'Scadono'} {range(g, 'maturity')}.
           </ActionRow>
         ))}
         {weak.map((g) => (
-          <ActionRow key={'w' + g.key} g={g} tone="weak">
+          <ActionRow key={'w' + g.key} g={g} tone="weak" onSelect={onSelect}>
             Nei prossimi 12 mesi {one(g) ? 'rende' : 'rendono'} {fmtPct(g.first.nextYearYield!)} netto, meno del {bench}% di
             confronto. Scadenza {range(g, 'maturity')}.
           </ActionRow>
@@ -265,7 +340,7 @@ function ActionList({ assessed, settings }: { assessed: Assessment[]; settings: 
   )
 }
 
-function ActionRow({ g, tone, children }: { g: Group; tone: string; children: React.ReactNode }) {
+function ActionRow({ g, tone, onSelect, children }: { g: Group; tone: string; onSelect: (ids: string[]) => void; children: React.ReactNode }) {
   const b = g.first.buono
   const nominal = g.items.reduce((s, a) => s + a.buono.nominale, 0)
   const fmtNom = (n: number) => (b.valuta === 'ITL' ? fmtLire(n) : fmtEur0(n))
@@ -297,31 +372,54 @@ function ActionRow({ g, tone, children }: { g: Group; tone: string; children: Re
           </details>
         )}
       </div>
-      <span className="amount">{fmtEur(g.net)}</span>
+      <div className="amount">
+        {fmtEur(g.net)}
+        <button className="link small" onClick={() => onSelect(g.items.map((a) => a.buono.id))}>
+          Seleziona per il rimborso
+        </button>
+      </div>
     </li>
   )
 }
 
 type SortKey = 'serie' | 'sottoscritto' | 'maturity' | 'now' | 'atMaturity'
+type Filter = Status | 'all' | 'rimborsato' | 'selezionati'
 
-function BuoniTable({ assessed }: { assessed: Assessment[] }) {
-  const [filter, setFilter] = useState<Status | 'all'>('all')
+interface TableProps {
+  all: Assessment[]
+  rimborsi: Record<string, Rimborso>
+  selected: Set<string>
+  setSelected: (s: Set<string>) => void
+  filter: Filter
+  setFilter: (f: Filter) => void
+  today: string
+  onRedeem: (ids: string[], data: string) => void
+  onUndo: (ids: string[]) => void
+  ref: React.Ref<HTMLElement>
+}
+
+function BuoniTable({ all, rimborsi, selected, setSelected, filter, setFilter, today, onRedeem, onUndo, ref }: TableProps) {
+  const [query, setQuery] = useState('')
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({ key: 'maturity', dir: 1 })
+  const [data, setData] = useState(today)
 
-  const counts = new Map<Status, number>()
-  for (const a of assessed) counts.set(a.status, (counts.get(a.status) ?? 0) + 1)
+  const statusOf = (a: Assessment): Filter => (rimborsi[a.buono.id] ? 'rimborsato' : a.status)
+  const counts = new Map<Filter, number>()
+  for (const a of all) counts.set(statusOf(a), (counts.get(statusOf(a)) ?? 0) + 1)
 
   const value = (a: Assessment): string | number => {
     switch (sort.key) {
       case 'serie': return a.buono.serie
       case 'sottoscritto': return a.buono.sottoscritto
       case 'maturity': return a.maturity ?? '9999'
-      case 'now': return a.now?.net ?? -1
+      case 'now': return rimborsi[a.buono.id]?.netto ?? a.now?.net ?? -1
       case 'atMaturity': return a.atMaturity?.net ?? -1
     }
   }
-  const rows = assessed
-    .filter((a) => filter === 'all' || a.status === filter)
+  const q = query.trim().toUpperCase()
+  const rows = all
+    .filter((a) => filter === 'all' || (filter === 'selezionati' ? selected.has(a.buono.id) : statusOf(a) === filter))
+    .filter((a) => !q || a.buono.serie.includes(q) || (a.buono.numero ?? '').toUpperCase().includes(q))
     .sort((x, y) => (value(x) < value(y) ? -sort.dir : value(x) > value(y) ? sort.dir : 0))
 
   const header = (key: SortKey, label: string, num = false) => (
@@ -333,23 +431,110 @@ function BuoniTable({ assessed }: { assessed: Assessment[] }) {
     </th>
   )
 
+  const visibleIds = rows.map((a) => a.buono.id)
+  const allVisibleSelected = visibleIds.length > 0 && visibleIds.every((id) => selected.has(id))
+  const toggle = (id: string) => {
+    const next = new Set(selected)
+    if (next.has(id)) next.delete(id)
+    else next.add(id)
+    setSelected(next)
+  }
+  const toggleAll = () => {
+    const next = new Set(selected)
+    for (const id of visibleIds) {
+      if (allVisibleSelected) next.delete(id)
+      else next.add(id)
+    }
+    setSelected(next)
+  }
+
+  const chosen = all.filter((a) => selected.has(a.buono.id))
+  const toRedeem = chosen.filter((a) => !rimborsi[a.buono.id] && a.rule)
+  const toUndo = chosen.filter((a) => rimborsi[a.buono.id])
+  const redeemNet = toRedeem.reduce((s, a) => s + valueAt(a.buono, a.rule!, data).net, 0)
+
+  const filterLabels: [Filter, string][] = [
+    ...STATUS_ORDER.map((st) => [st, STATUS_LABEL[st]] as [Filter, string]),
+    ['rimborsato', 'Rimborsati'],
+  ]
+
   return (
-    <section>
+    <section ref={ref}>
       <h2>Tutti i buoni</h2>
+      <div className="filters">
+        <div className="field search">
+          <label htmlFor="cerca">Cerca serie o numero</label>
+          <input id="cerca" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="es. Q, B60, 1066" />
+        </div>
+      </div>
       <div className="filters" role="group" aria-label="Filtra per stato">
         <button className="chip" aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>
-          Tutti ({assessed.length})
+          Tutti ({all.length})
         </button>
-        {STATUS_ORDER.filter((s) => counts.get(s)).map((s) => (
-          <button key={s} className="chip" aria-pressed={filter === s} onClick={() => setFilter(s)}>
-            {STATUS_LABEL[s]} ({counts.get(s)})
+        {selected.size > 0 && (
+          <button className="chip" aria-pressed={filter === 'selezionati'} onClick={() => setFilter('selezionati')}>
+            Selezionati ({selected.size})
           </button>
-        ))}
+        )}
+        {filterLabels
+          .filter(([f]) => counts.get(f))
+          .map(([f, label]) => (
+            <button key={f} className="chip" aria-pressed={filter === f} onClick={() => setFilter(f)}>
+              {label} ({counts.get(f)})
+            </button>
+          ))}
       </div>
+
+      {selected.size > 0 && (
+        <div className="bulk" role="region" aria-label="Azioni sui buoni selezionati">
+          <div>
+            <strong>{plural(selected.size, 'buono selezionato', 'buoni selezionati')}</strong>
+            {toRedeem.length > 0 && (
+              <span className="muted"> · netto stimato al {fmtDate(data)}: {fmtEur(redeemNet)}</span>
+            )}
+          </div>
+          <div className="bulk-actions">
+            {toRedeem.length > 0 && (
+              <>
+                <div className="field inline">
+                  <label htmlFor="data-rimborso">Rimborsati il</label>
+                  <input id="data-rimborso" type="date" value={data} max={today} onChange={(e) => setData(e.target.value || today)} />
+                </div>
+                <button className="btn" onClick={() => onRedeem(toRedeem.map((a) => a.buono.id), data)}>
+                  Segna {toRedeem.length === 1 ? 'come rimborsato' : `${toRedeem.length} come rimborsati`}
+                </button>
+              </>
+            )}
+            {toUndo.length > 0 && (
+              <button className="btn ghost" onClick={() => onUndo(toUndo.map((a) => a.buono.id))}>
+                Annulla rimborso ({toUndo.length})
+              </button>
+            )}
+            <button
+              className="link"
+              onClick={() => {
+                setSelected(new Set())
+                if (filter === 'selezionati') setFilter('all')
+              }}
+            >
+              Deseleziona
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="table-wrap">
         <table>
           <thead>
             <tr>
+              <th className="check">
+                <input
+                  type="checkbox"
+                  aria-label="Seleziona tutti i buoni visibili"
+                  checked={allVisibleSelected}
+                  onChange={toggleAll}
+                />
+              </th>
               {header('serie', 'Serie')}
               <th>Numero</th>
               {header('sottoscritto', 'Sottoscritto')}
@@ -361,18 +546,40 @@ function BuoniTable({ assessed }: { assessed: Assessment[] }) {
             </tr>
           </thead>
           <tbody>
-            {rows.map((a) => (
-              <tr key={a.buono.id}>
-                <td><span className="stamp">{a.buono.serie}</span></td>
-                <td className="muted">{a.buono.numero ?? '—'}</td>
-                <td>{fmtDate(a.buono.sottoscritto)}</td>
-                <td className="num">{a.buono.valuta === 'ITL' ? fmtLire(a.buono.nominale) : fmtEur(a.buono.nominale)}</td>
-                <td className="num">{a.now ? fmtEur(a.now.net) : '—'}</td>
-                <td>{a.maturity ? fmtDate(a.maturity) : '—'}</td>
-                <td className="num">{a.atMaturity ? fmtEur(a.atMaturity.net) : '—'}</td>
-                <td><span className={`status ${a.status}`}>{STATUS_LABEL[a.status]}</span></td>
+            {rows.map((a) => {
+              const r = rimborsi[a.buono.id]
+              return (
+                <tr key={a.buono.id} className={`${r ? 'redeemed' : ''}${selected.has(a.buono.id) ? ' selected' : ''}`}>
+                  <td className="check">
+                    <input
+                      type="checkbox"
+                      aria-label={`Seleziona ${a.buono.serie} del ${fmtDate(a.buono.sottoscritto)}`}
+                      checked={selected.has(a.buono.id)}
+                      onChange={() => toggle(a.buono.id)}
+                    />
+                  </td>
+                  <td><span className="stamp">{a.buono.serie}</span></td>
+                  <td className="muted">{a.buono.numero ?? '—'}</td>
+                  <td>{fmtDate(a.buono.sottoscritto)}</td>
+                  <td className="num">{a.buono.valuta === 'ITL' ? fmtLire(a.buono.nominale) : fmtEur(a.buono.nominale)}</td>
+                  <td className="num">{r ? <span className="muted">{fmtEur(r.netto)}</span> : a.now ? fmtEur(a.now.net) : '—'}</td>
+                  <td>{a.maturity ? fmtDate(a.maturity) : '—'}</td>
+                  <td className="num">{a.atMaturity ? fmtEur(a.atMaturity.net) : '—'}</td>
+                  <td>
+                    {r ? (
+                      <span className="status rimborsato">Rimborsato il {fmtDate(r.data)}</span>
+                    ) : (
+                      <span className={`status ${a.status}`}>{STATUS_LABEL[a.status]}</span>
+                    )}
+                  </td>
+                </tr>
+              )
+            })}
+            {rows.length === 0 && (
+              <tr>
+                <td colSpan={9} className="muted">Nessun buono corrisponde alla ricerca.</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
