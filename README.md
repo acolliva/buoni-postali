@@ -4,6 +4,7 @@ A local calculator and portfolio dashboard for Italian Buoni Fruttiferi Postali.
 
 - **Portafoglio**: import your `.xlsx`, see each buono's net value today and at maturity, what has matured and stopped earning, what is close to prescription, and what yields less than a benchmark rate.
 - **Calcolatore**: value of a single buono at any date, with its growth curve.
+- **Analisi**: open it on one buono (click its series in the table), a to-do group or any selection. It compares holding with cashing out into an alternative at a chosen net rate (default 2.5%, simple interest credited monthly), and shows the value over time, the yield of each coming year, and the best date to cash each buono.
 - **Rimborsati**: select buoni (or a whole group from the to-do list), mark them as redeemed on a date, and they drop out of the totals. Marks survive re-importing the spreadsheet.
 
 Data stays at home. With the small home server running (for example on a Raspberry Pi, see [docs/deploy.md](docs/deploy.md)) it lives in `data/state.json` and is shared by every device on your network. Without it, the app falls back to the browser's own storage.

@@ -5,7 +5,7 @@ import { withStableIds } from '../domain/identity'
 import type { ImportWarning } from '../domain/types'
 import { fmtDate, fmtEur, fmtEur0, fmtLire, fmtPct } from '../format'
 import { readWorkbook } from '../import/readWorkbook'
-import { useAppState, type Rimborso, type Settings } from '../state/store'
+import type { AppState, Backend, Rimborso, SaveProblem, Settings } from '../state/store'
 import { MaturityStrip } from './MaturityStrip'
 
 const STATUS_LABEL: Record<Status, string> = {
@@ -39,8 +39,15 @@ function groupBySeries(list: Assessment[]): Group[] {
 
 const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`
 
-export function Portfolio() {
-  const { state, update, backend, saveProblem } = useAppState()
+interface PortfolioProps {
+  state: AppState | null
+  update: (fn: (s: AppState) => AppState) => void
+  backend: Backend
+  saveProblem: SaveProblem
+  onAnalyze: (ids: string[]) => void
+}
+
+export function Portfolio({ state, update, backend, saveProblem, onAnalyze }: PortfolioProps) {
   const [warnings, setWarnings] = useState<ImportWarning[]>([])
   const [error, setError] = useState<string | null>(null)
   const [selected, setSelected] = useState<Set<string>>(new Set())
@@ -182,7 +189,7 @@ export function Portfolio() {
         </div>
       )}
 
-      <ActionList assessed={known} settings={settings} onSelect={selectInTable} />
+      <ActionList assessed={known} settings={settings} onSelect={selectInTable} onAnalyze={onAnalyze} />
 
       <section>
         <h2>Quando scadono</h2>
@@ -201,6 +208,7 @@ export function Portfolio() {
         today={today}
         onRedeem={markRedeemed}
         onUndo={undoRedeemed}
+        onAnalyze={onAnalyze}
       />
 
       <section>
@@ -284,7 +292,17 @@ function ImportZone({ onFile, error }: { onFile: (f: File) => void; error: strin
   )
 }
 
-function ActionList({ assessed, settings, onSelect }: { assessed: Assessment[]; settings: Settings; onSelect: (ids: string[]) => void }) {
+function ActionList({
+  assessed,
+  settings,
+  onSelect,
+  onAnalyze,
+}: {
+  assessed: Assessment[]
+  settings: Settings
+  onSelect: (ids: string[]) => void
+  onAnalyze: (ids: string[]) => void
+}) {
   const pick = (f: (a: Assessment) => boolean) => groupBySeries(assessed.filter(f))
   const urgent = pick((a) => a.status === 'prescrizione-vicina' || a.status === 'prescritto')
   const late = pick((a) => a.status === 'scaduto')
@@ -312,25 +330,25 @@ function ActionList({ assessed, settings, onSelect }: { assessed: Assessment[]; 
       <h2>Da fare</h2>
       <ul className="actions">
         {urgent.map((g) => (
-          <ActionRow key={'u' + g.key} g={g} tone="urgent" onSelect={onSelect}>
+          <ActionRow key={'u' + g.key} g={g} tone="urgent" onSelect={onSelect} onAnalyze={onAnalyze}>
             {g.first.status === 'prescritto'
               ? `Prescritt${one(g) ? 'o' : 'i'} ${range(g, 'prescription')}: verifica con Poste se è ancora possibile il rimborso.`
               : `Da incassare prima della prescrizione, ${range(g, 'prescription')}. Dopo non si recupera nulla, né capitale né interessi.`}
           </ActionRow>
         ))}
         {late.map((g) => (
-          <ActionRow key={'l' + g.key} g={g} tone="late" onSelect={onSelect}>
+          <ActionRow key={'l' + g.key} g={g} tone="late" onSelect={onSelect} onAnalyze={onAnalyze}>
             {one(g) ? 'Scaduto' : 'Scaduti'} {range(g, 'maturity')}: non {one(g) ? 'matura' : 'maturano'} più interessi.
             {' '}Prescrizione {range(g, 'prescription')}.
           </ActionRow>
         ))}
         {soon.map((g) => (
-          <ActionRow key={'s' + g.key} g={g} tone="soon" onSelect={onSelect}>
+          <ActionRow key={'s' + g.key} g={g} tone="soon" onSelect={onSelect} onAnalyze={onAnalyze}>
             {one(g) ? 'Scade' : 'Scadono'} {range(g, 'maturity')}.
           </ActionRow>
         ))}
         {weak.map((g) => (
-          <ActionRow key={'w' + g.key} g={g} tone="weak" onSelect={onSelect}>
+          <ActionRow key={'w' + g.key} g={g} tone="weak" onSelect={onSelect} onAnalyze={onAnalyze}>
             Nei prossimi 12 mesi {one(g) ? 'rende' : 'rendono'} {fmtPct(g.first.nextYearYield!)} netto, meno del {bench}% di
             confronto. Scadenza {range(g, 'maturity')}.
           </ActionRow>
@@ -340,7 +358,14 @@ function ActionList({ assessed, settings, onSelect }: { assessed: Assessment[]; 
   )
 }
 
-function ActionRow({ g, tone, onSelect, children }: { g: Group; tone: string; onSelect: (ids: string[]) => void; children: React.ReactNode }) {
+function ActionRow(props: {
+  g: Group
+  tone: string
+  onSelect: (ids: string[]) => void
+  onAnalyze: (ids: string[]) => void
+  children: React.ReactNode
+}) {
+  const { g, tone, onSelect, onAnalyze, children } = props
   const b = g.first.buono
   const nominal = g.items.reduce((s, a) => s + a.buono.nominale, 0)
   const fmtNom = (n: number) => (b.valuta === 'ITL' ? fmtLire(n) : fmtEur0(n))
@@ -374,6 +399,9 @@ function ActionRow({ g, tone, onSelect, children }: { g: Group; tone: string; on
       </div>
       <div className="amount">
         {fmtEur(g.net)}
+        <button className="link small" onClick={() => onAnalyze(g.items.map((a) => a.buono.id))}>
+          Analizza
+        </button>
         <button className="link small" onClick={() => onSelect(g.items.map((a) => a.buono.id))}>
           Seleziona per il rimborso
         </button>
@@ -395,10 +423,12 @@ interface TableProps {
   today: string
   onRedeem: (ids: string[], data: string) => void
   onUndo: (ids: string[]) => void
+  onAnalyze: (ids: string[]) => void
   ref: React.Ref<HTMLElement>
 }
 
-function BuoniTable({ all, rimborsi, selected, setSelected, filter, setFilter, today, onRedeem, onUndo, ref }: TableProps) {
+function BuoniTable(props: TableProps) {
+  const { all, rimborsi, selected, setSelected, filter, setFilter, today, onRedeem, onUndo, onAnalyze, ref } = props
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({ key: 'maturity', dir: 1 })
   const [data, setData] = useState(today)
@@ -505,6 +535,14 @@ function BuoniTable({ all, rimborsi, selected, setSelected, filter, setFilter, t
                 </button>
               </>
             )}
+            {chosen.some((a) => a.rule && !rimborsi[a.buono.id]) && (
+              <button
+                className="btn ghost"
+                onClick={() => onAnalyze(chosen.filter((a) => !rimborsi[a.buono.id]).map((a) => a.buono.id))}
+              >
+                Analizza
+              </button>
+            )}
             {toUndo.length > 0 && (
               <button className="btn ghost" onClick={() => onUndo(toUndo.map((a) => a.buono.id))}>
                 Annulla rimborso ({toUndo.length})
@@ -558,7 +596,15 @@ function BuoniTable({ all, rimborsi, selected, setSelected, filter, setFilter, t
                       onChange={() => toggle(a.buono.id)}
                     />
                   </td>
-                  <td><span className="stamp">{a.buono.serie}</span></td>
+                  <td>
+                    {a.rule && !r ? (
+                      <button className="stamp as-button" title="Analizza questo buono" onClick={() => onAnalyze([a.buono.id])}>
+                        {a.buono.serie}
+                      </button>
+                    ) : (
+                      <span className="stamp">{a.buono.serie}</span>
+                    )}
+                  </td>
                   <td className="muted">{a.buono.numero ?? '—'}</td>
                   <td>{fmtDate(a.buono.sottoscritto)}</td>
                   <td className="num">{a.buono.valuta === 'ITL' ? fmtLire(a.buono.nominale) : fmtEur(a.buono.nominale)}</td>
