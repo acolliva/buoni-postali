@@ -27,14 +27,13 @@ npm run serve            # try it: http://<pi-name>.local:9999, Ctrl+C to stop
 
 ## Start automatically
 
-The unit file assumes the user `pi` and the repo in `/home/pi/buoni-postali`. Edit it first if yours differ.
+From the repo folder, run:
 
 ```sh
-sudo cp deploy/buoni-postali.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now buoni-postali
-systemctl status buoni-postali      # should say "active (running)"
+./deploy/install-service.sh
 ```
+
+It installs the systemd service for your user, your repo folder and your Node.js path, enables it at boot and starts it. Check it any time with `systemctl status buoni-postali`, and see errors with `journalctl -u buoni-postali -n 30`.
 
 Open `http://<pi-name>.local:9999` from any device on the network. If `.local` names don't resolve on your network, use the Pi's IP address (`hostname -I` on the Pi).
 
@@ -49,6 +48,8 @@ npm ci
 npm run build
 sudo systemctl restart buoni-postali
 ```
+
+If the service file itself changed, run `./deploy/install-service.sh` again instead of the last line.
 
 ## Your data
 

@@ -1,9 +1,6 @@
-# systemd unit for the Buoni postali home server.
-# Adjust User and the paths if your user is not "pi" or the repo lives elsewhere.
-#
-#   sudo cp deploy/buoni-postali.service /etc/systemd/system/
-#   sudo systemctl daemon-reload
-#   sudo systemctl enable --now buoni-postali
+# systemd unit template for the Buoni postali home server.
+# Don't copy it by hand: run ./deploy/install-service.sh, which fills in
+# your user, repo folder and Node.js path.
 
 [Unit]
 Description=Buoni postali home server
