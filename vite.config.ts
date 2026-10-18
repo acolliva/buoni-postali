@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   // In development, /api goes to the home server if it is running
   // (`npm run serve`); otherwise the app falls back to browser storage.
-  server: { proxy: { '/api': 'http://localhost:8080' } },
+  server: { proxy: { '/api': 'http://localhost:9999' } },
   test: { include: ['src/**/*.test.ts'] },
 })

@@ -12,10 +12,10 @@ Data stays at home. With the small home server running (for example on a Raspber
 
 ```sh
 npm install
-npm run dev      # http://localhost:5173 (uses the home server on :8080 if running)
+npm run dev      # http://localhost:5173 (uses the home server on :9999 if running)
 npm test         # unit tests
 npm run build    # static build in dist/
-npm run serve    # home server: serves dist/ and stores data in data/ (port 8080)
+npm run serve    # home server: serves dist/ and stores data in data/ (port 9999)
 ```
 
 ## Spreadsheet format

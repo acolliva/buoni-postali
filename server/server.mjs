@@ -1,7 +1,7 @@
 // Minimal home server: serves the built app from dist/ and keeps the shared
 // state in data/state.json. No dependencies beyond Node.js (18+).
 //
-//   PORT=8080 HOST=0.0.0.0 DATA_DIR=./data node server/server.mjs
+//   PORT=9999 HOST=0.0.0.0 DATA_DIR=./data node server/server.mjs
 
 import { createServer } from 'node:http'
 import { mkdir, readFile, readdir, rename, stat, unlink, writeFile } from 'node:fs/promises'
@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url'
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const DIST = resolve(process.env.DIST_DIR ?? join(root, 'dist'))
 const DATA = resolve(process.env.DATA_DIR ?? join(root, 'data'))
-const PORT = Number(process.env.PORT ?? 8080)
+const PORT = Number(process.env.PORT ?? 9999)
 const HOST = process.env.HOST ?? '0.0.0.0'
 const STATE = join(DATA, 'state.json')
 const BACKUPS = join(DATA, 'backups')
