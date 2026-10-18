@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { addMonths, completedMonths } from './dates'
 import { assess, factors, maturityDate, prescriptionDate, valueAt } from './engine'
-import { findRule, type SeriesRule } from './series'
+import { findRule, seriesForDate, type SeriesRule } from './series'
 
 const rule = (code: string): SeriesRule => {
   const r = findRule(code)
@@ -98,5 +98,17 @@ describe('assess', () => {
   it('flags dates before a series opened', () => {
     const a = assess({ id: 'd', serie: 'B99', sottoscritto: '2010-01-01', nominale: 1000, valuta: 'EUR' }, opts)
     expect(a.outsideIssueWindow).toBe(true)
+  })
+})
+
+describe('seriesForDate', () => {
+  it.each([
+    ['1994-11-02', 'Q'],
+    ['1995-11-16', 'R'],
+    ['1997-10-01', 'T'],
+    ['2005-03-07', 'B5'],
+    ['2013-01-31', 'B99'],
+  ])('%s → %s', (date, code) => {
+    expect(seriesForDate(date)?.codes[0]).toBe(code)
   })
 })

@@ -75,3 +75,11 @@ export function ruleFor(code: string, sottoscritto: string): { rule?: SeriesRule
   const successor = SERIES_RULES.find((r) => r.durationYears === 30 && r !== rule && inWindow(r))
   return successor ? { rule: successor, reclassifiedFrom: rule.codes[0] } : { rule }
 }
+
+/** The ordinary series on sale on a given subscription date, if known. */
+export function seriesForDate(sottoscritto: string): SeriesRule | undefined {
+  return SERIES_RULES.find((r) => sottoscritto >= r.issueFrom && sottoscritto <= r.issueTo)
+}
+
+/** Lire were the default before the X series (21/12/1999); euro from then on. */
+export const defaultCurrency = (sottoscritto: string): Currency => (sottoscritto < '1999-12-21' ? 'ITL' : 'EUR')
