@@ -55,7 +55,7 @@ If the service file itself changed, run `./deploy/install-service.sh` again inst
 
 - Everything lives in `data/state.json`. Before each save the previous version is kept in `data/backups/`, and the last 50 are kept.
 - `data/` is git-ignored, so updates never touch it.
-- Copy `data/state.json` somewhere else from time to time, for example to a USB stick or your laptop with `scp pi@<pi-name>.local:buoni-postali/data/state.json .`.
+- Copy `data/state.json` somewhere else from time to time, for example to a USB stick or your laptop with `scp <user>@<pi-name>.local:buoni-postali/data/state.json .`.
 
 ## Security
 
